@@ -1,5 +1,10 @@
-<manifest package="com.github.jiahuanyu.example"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="com.github.jiahuanyu.example"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--Service显示Dialog-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -7,6 +12,19 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".servicedialog.ServiceDialogActivity">
+
+        </activity>
+
+        <service android:name=".servicedialog.MyService"/>
 
     </application>
 
