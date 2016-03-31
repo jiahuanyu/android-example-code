@@ -19,6 +19,7 @@ public class DropDownMenuActivity extends AppCompatActivity
     private ViewGroup mMenuContainer;
     private TabLayout mTabLayout;
     private boolean mShown;
+    private boolean mInAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -43,21 +44,64 @@ public class DropDownMenuActivity extends AppCompatActivity
 
     public void setMenuVisible(View v)
     {
-        if (mShown)
+        if (!mInAnimation)
         {
-            Animation menuOutAnim = AnimationUtils.loadAnimation(this, R.anim.menu_out);
-            menuOutAnim.setFillAfter(true);
-            mMenuContainer.setVisibility(View.GONE);
-            mMenuContainer.setAnimation(menuOutAnim);
-            mShown = false;
-        }
-        else
-        {
-            Animation menuInAnim = AnimationUtils.loadAnimation(this, R.anim.menu_in);
-            menuInAnim.setFillAfter(true);
-            mMenuContainer.setVisibility(View.VISIBLE);
-            mMenuContainer.setAnimation(menuInAnim);
-            mShown = true;
+            if (mShown)
+            {
+                Animation menuOutAnim = AnimationUtils.loadAnimation(this, R.anim.menu_out);
+                menuOutAnim.setAnimationListener(new Animation.AnimationListener()
+                {
+                    @Override
+                    public void onAnimationStart(Animation animation)
+                    {
+                        mInAnimation = true;
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation)
+                    {
+                        mInAnimation = false;
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation)
+                    {
+
+                    }
+                });
+                menuOutAnim.setFillAfter(true);
+                mMenuContainer.setVisibility(View.GONE);
+                mMenuContainer.setAnimation(menuOutAnim);
+                mShown = false;
+            }
+            else
+            {
+                Animation menuInAnim = AnimationUtils.loadAnimation(this, R.anim.menu_in);
+                menuInAnim.setAnimationListener(new Animation.AnimationListener()
+                {
+                    @Override
+                    public void onAnimationStart(Animation animation)
+                    {
+                        mInAnimation = true;
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation)
+                    {
+                        mInAnimation = false;
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation)
+                    {
+
+                    }
+                });
+                menuInAnim.setFillAfter(true);
+                mMenuContainer.setVisibility(View.VISIBLE);
+                mMenuContainer.setAnimation(menuInAnim);
+                mShown = true;
+            }
         }
     }
 
