@@ -20,9 +20,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".servicedialog.ServiceDialogActivity"/>
+        <activity
+            android:name=".servicedialog.ServiceDialogActivity"
+            android:label="在Service中弹出对话框"/>
 
-        <activity android:name=".dropdownmenu.DropDownMenuActivity"/>
+        <activity
+            android:name=".dropdownmenu.DropDownMenuActivity"
+            android:label="DropDownMenu"/>
 
         <service android:name=".servicedialog.MyService"/>
 
