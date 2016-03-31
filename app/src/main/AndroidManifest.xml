@@ -4,7 +4,7 @@
 
 
     <!--Service显示Dialog-->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
         android:allowBackup="true"
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".servicedialog.ServiceDialogActivity">
+        <activity android:name=".servicedialog.ServiceDialogActivity"/>
 
-        </activity>
+        <activity android:name=".dropdownmenu.DropDownMenuActivity"/>
 
         <service android:name=".servicedialog.MyService"/>
 
