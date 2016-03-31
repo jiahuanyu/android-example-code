@@ -69,7 +69,6 @@ public class DropDownMenuActivity extends AppCompatActivity
 
                     }
                 });
-                menuOutAnim.setFillAfter(true);
                 mMenuContainer.setVisibility(View.GONE);
                 mMenuContainer.setAnimation(menuOutAnim);
                 mShown = false;
@@ -97,7 +96,6 @@ public class DropDownMenuActivity extends AppCompatActivity
 
                     }
                 });
-                menuInAnim.setFillAfter(true);
                 mMenuContainer.setVisibility(View.VISIBLE);
                 mMenuContainer.setAnimation(menuInAnim);
                 mShown = true;
