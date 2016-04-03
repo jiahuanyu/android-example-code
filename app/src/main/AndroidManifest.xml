@@ -28,6 +28,10 @@
             android:name=".dropdownmenu.DropDownMenuActivity"
             android:label="DropDownMenu"/>
 
+        <activity
+            android:name=".gridviewsort.GridViewSortActivity"
+            android:label="拖放排序GridView"/>
+
         <service android:name=".servicedialog.MyService"/>
 
     </application>

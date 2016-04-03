@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.github.jiahuanyu.example.dropdownmenu.DropDownMenuActivity;
+import com.github.jiahuanyu.example.gridviewsort.GridViewSortActivity;
 import com.github.jiahuanyu.example.servicedialog.ServiceDialogActivity;
 
 
@@ -21,13 +22,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private final String[] mTitle =
             {
                     "在Service中弹出对话框",
-                    "DropDownMenu"
+                    "DropDownMenu",
+                    "拖放排序GridView"
             };
 
     private final Class[] mClass =
             {
                     ServiceDialogActivity.class,
-                    DropDownMenuActivity.class
+                    DropDownMenuActivity.class,
+                    GridViewSortActivity.class
             };
 
     private ArrayAdapter<String> mAdapter;
