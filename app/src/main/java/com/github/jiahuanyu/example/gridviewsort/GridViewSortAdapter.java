@@ -33,6 +33,8 @@ public class GridViewSortAdapter extends BaseAdapter
     private int mCurrentHideItemPosition = AdapterView.INVALID_POSITION;
     private int mStartHideItemPosition = AdapterView.INVALID_POSITION;
 
+    private List<AnimatorSet> mAnimatorSetList = new ArrayList<>();
+
     private int mHorizontalSpace;
     private int mVerticalSpace;
 
@@ -64,6 +66,8 @@ public class GridViewSortAdapter extends BaseAdapter
 
     public void clear()
     {
+
+
         String value = mTypeTitle.get(mStartHideItemPosition);
         if (mStartHideItemPosition < mCurrentHideItemPosition)
         {
@@ -80,6 +84,13 @@ public class GridViewSortAdapter extends BaseAdapter
 
         notifyDataSetChanged();
 
+        for (AnimatorSet set : mAnimatorSetList)
+        {
+            set.cancel();
+        }
+
+        mAnimatorSetList.clear();
+        
         for (int i = 0; i < mGridView.getChildCount(); i++)
         {
             mGridView.getChildAt(i).setTranslationX(0);
@@ -98,6 +109,9 @@ public class GridViewSortAdapter extends BaseAdapter
 
     public void swap(int position)
     {
+
+        mAnimatorSetList.clear();
+
         int r_p = mPositionList.indexOf(position);
 
         Log.d("P_P", "r_p = " + r_p);
@@ -107,7 +121,6 @@ public class GridViewSortAdapter extends BaseAdapter
             for (int i = mCurrentHideItemPosition + 1; i <= r_p; i++)
             {
                 View v = mGridView.getChildAt(mPositionList.get(i));
-                v.clearAnimation();
                 if (i % mColsNum == 0 && i > 0)
                 {
                     startMoveAnimation(v, v.getTranslationX() + mTranslateX * (mColsNum - 1), v.getTranslationY() -
@@ -124,7 +137,6 @@ public class GridViewSortAdapter extends BaseAdapter
             for (int i = r_p; i < mCurrentHideItemPosition; i++)
             {
                 View v = mGridView.getChildAt(mPositionList.get(i));
-                v.clearAnimation();
                 if ((i + 1) % mColsNum == 0)
                 {
                     startMoveAnimation(v, v.getTranslationX() - mTranslateX * (mColsNum - 1), v.getTranslationY() + mTranslateY);
@@ -167,6 +179,7 @@ public class GridViewSortAdapter extends BaseAdapter
         }
     }
 
+
     private void startMoveAnimation(View myView, float x, float y)
     {
         AnimatorSet set = new AnimatorSet();
@@ -200,6 +213,7 @@ public class GridViewSortAdapter extends BaseAdapter
 
             }
         });
+        mAnimatorSetList.add(set);
         set.setDuration(150).start();
     }
 
