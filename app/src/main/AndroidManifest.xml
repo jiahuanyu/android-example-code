@@ -32,6 +32,10 @@
             android:name=".gridviewsort.GridViewSortActivity"
             android:label="拖放排序GridView"/>
 
+        <activity
+            android:name=".emptyview.EmptyViewActivity"
+            android:label="擅用EmptyView"/>
+
         <service android:name=".servicedialog.MyService"/>
 
     </application>
