@@ -2,19 +2,18 @@ package com.github.jiahuanyu.example.dropdownmenu;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
 
 /**
  * Created by doom on 16/3/31.
  */
-public class DropDownMenuActivity extends AppCompatActivity
+public class DropDownMenuActivity extends BaseActivity
 {
     private ViewGroup mMenuContainer;
     private TabLayout mTabLayout;
@@ -25,12 +24,10 @@ public class DropDownMenuActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setContentView(R.layout.activity_drop_down_menu);
+        initActivity(true, R.layout.activity_drop_down_menu);
 
         mMenuContainer = (ViewGroup) findViewById(R.id.activity_drop_down_menu_container);
         mTabLayout = (TabLayout) findViewById(R.id.activity_drop_down_menu_tablayout);
-
 
         mTabLayout.addTab(mTabLayout.newTab().setText("上海"));
         mTabLayout.addTab(mTabLayout.newTab().setText("北京"));
@@ -101,15 +98,5 @@ public class DropDownMenuActivity extends AppCompatActivity
                 mShown = true;
             }
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        if (item.getItemId() == android.R.id.home)
-        {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

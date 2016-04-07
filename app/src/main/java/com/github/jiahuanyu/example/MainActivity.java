@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             {
                     ServiceDialogActivity.class,
                     DropDownMenuActivity.class,
-                    GridViewSortActivity.class
+                    GridViewSortActivity.class,
             };
 
     private ArrayAdapter<String> mAdapter;
