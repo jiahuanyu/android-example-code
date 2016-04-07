@@ -9,3 +9,6 @@
 
 ### GridViewSort —— 可排序的GridView，类似网易新闻客户端的分类排序
 <img src="./images/gridviewsort.gif" width="200px" height="auto" />
+
+### EmptyView ——  充分利用ListView的setEmptyView(View)
+<img src="./images/emptyview.gif" width="200px" height="auto" />
