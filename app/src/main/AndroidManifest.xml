@@ -36,6 +36,10 @@
             android:name=".emptyview.EmptyViewActivity"
             android:label="擅用EmptyView"/>
 
+        <activity
+            android:name=".preference.PreferenceApplyActivity"
+            android:label="Preferece"/>
+
         <service android:name=".servicedialog.MyService"/>
 
     </application>
