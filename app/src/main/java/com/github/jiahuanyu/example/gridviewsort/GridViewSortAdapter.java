@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class GridViewSortAdapter extends BaseAdapter
 {
+    private static final String TAG = "GridViewSortAdapter";
 
     private Context mContext;
 
@@ -66,8 +67,6 @@ public class GridViewSortAdapter extends BaseAdapter
 
     public void clear()
     {
-
-
         String value = mTypeTitle.get(mStartHideItemPosition);
         if (mStartHideItemPosition < mCurrentHideItemPosition)
         {
@@ -109,12 +108,11 @@ public class GridViewSortAdapter extends BaseAdapter
 
     public void swap(int position)
     {
-
         mAnimatorSetList.clear();
 
         int r_p = mPositionList.indexOf(position);
 
-        Log.d("P_P", "r_p = " + r_p);
+        Log.d(TAG, "r_p = " + r_p);
 
         if (mCurrentHideItemPosition < r_p)
         {

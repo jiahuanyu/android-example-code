@@ -19,6 +19,8 @@ import android.widget.ImageView;
 public class DragSortGridView extends GridView implements AdapterView.OnItemLongClickListener
 {
 
+    private static final String TAG = "DragSortGridView";
+
     private WindowManager mWindowManager;
 
 
@@ -66,42 +68,38 @@ public class DragSortGridView extends GridView implements AdapterView.OnItemLong
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l)
     {
+        // 至少有两个item的时候，才有排序
         if (getChildCount() >= 2)
         {
-            view.setDrawingCacheEnabled(true);
-
             mView = view;
-
+            // 在调用getDrawingCache必须先调用
+            view.setDrawingCacheEnabled(true);
+            // 获取截图并设置
             Bitmap bitmap = view.getDrawingCache();
-
+            mDragItemView.setImageBitmap(bitmap);
+            // 设置拖拽的imageview的params
             mDragItemLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
             mDragItemLayoutParams.width = bitmap.getWidth();
             mDragItemLayoutParams.height = bitmap.getHeight();
-
             mDragItemLayoutParams.x = (mDownX - mDragItemLayoutParams.width / 2);
             mDragItemLayoutParams.y = (mDownY - mDragItemLayoutParams.height / 2);
-
-            mDragItemLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                    | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
-                    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                    | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
-
+            // 设置拖拽imageview的中心位于长按点击点
+            mDragItemLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE  //不接受按键事件
+                    | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE  // 不接收触摸事件
+                    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON   // 保持常亮
+                    | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN; // place the window within the entire screen, ignoring decorations around the border (such as the status bar)
             mDragItemLayoutParams.format = PixelFormat.TRANSLUCENT;
-
             mDragItemLayoutParams.windowAnimations = 0;
-
-            mDragItemView.setImageBitmap(bitmap);
-
+            // 往WindowManager中添加拖拽的View
             mWindowManager.addView(mDragItemView, mDragItemLayoutParams);
 
             ((GridViewSortAdapter) getAdapter()).init();
 
             ((GridViewSortAdapter) getAdapter()).hideView(i);
 
-            Log.d("P_P", "long click = " + i);
+            Log.d(TAG, "long click = " + i);
 
             mDragStarted = true;
-
         }
         return true;
     }
@@ -120,14 +118,16 @@ public class DragSortGridView extends GridView implements AdapterView.OnItemLong
             case MotionEvent.ACTION_MOVE:
                 if (mDragStarted)
                 {
+                    // 保持中心
                     mDragItemLayoutParams.x = (int) (ev.getRawX() - mDragItemView.getWidth() / 2);
                     mDragItemLayoutParams.y = (int) (ev.getRawY() - mDragItemView.getHeight() / 2);
+                    // 更新params
                     mWindowManager.updateViewLayout(mDragItemView, mDragItemLayoutParams);
 
                     int position = pointToPosition((int) ev.getX(), (int) ev.getY());
                     if (position != AdapterView.INVALID_POSITION && !((GridViewSortAdapter) getAdapter()).isInAnimation())
                     {
-                        Log.d("P_P", "position = " + position);
+                        Log.d(TAG, "position = " + position);
                         ((GridViewSortAdapter) getAdapter()).swap(position);
                     }
                 }
