@@ -36,9 +36,18 @@
             android:name=".emptyview.EmptyViewActivity"
             android:label="擅用EmptyView"/>
 
+        <!-- Preference -->
         <activity
             android:name=".preference.ExamplePreferenceActivity"
+            android:label="Android Preference"/>
+
+        <activity
+            android:name=".preference.PreferenceEntranceActivity"
             android:label="Preference"/>
+
+        <activity
+            android:name=".preference.ExampleSupportPreferenceActivity"
+            android:label="Library Preference"/>
 
         <service android:name=".servicedialog.MyService"/>
 
