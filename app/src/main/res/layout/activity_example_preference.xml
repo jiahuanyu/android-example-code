@@ -6,8 +6,8 @@
 
 
     <fragment
-        android:id="@+id/acitivty_preference_apply_f"
-        android:name="com.github.jiahuanyu.example.preference.PreferenceApplyFragment"
+        android:id="@+id/acitivty_preference_example_f"
+        android:name="com.github.jiahuanyu.example.preference.ExamplePreferenceActivity$ExamplePreferenceFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

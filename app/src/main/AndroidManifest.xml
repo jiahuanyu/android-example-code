@@ -37,8 +37,8 @@
             android:label="擅用EmptyView"/>
 
         <activity
-            android:name=".preference.PreferenceApplyActivity"
-            android:label="Preferece"/>
+            android:name=".preference.ExamplePreferenceActivity"
+            android:label="Preference"/>
 
         <service android:name=".servicedialog.MyService"/>
 
