@@ -6,6 +6,9 @@
     <!--Service显示Dialog-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
+    <!-- 耳机回环 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -48,6 +51,12 @@
         <activity
             android:name=".preference.ExampleSupportPreferenceActivity"
             android:label="Library Preference"/>
+
+        <!-- Earphone Recycle -->
+        <activity
+            android:name=".earphonerecycle.EarphoneRecycleActivity"
+            android:label="耳机回环"/>
+
 
         <service android:name=".servicedialog.MyService"/>
 

@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.github.jiahuanyu.example.dropdownmenu.DropDownMenuActivity;
+import com.github.jiahuanyu.example.earphonerecycle.EarphoneRecycleActivity;
 import com.github.jiahuanyu.example.emptyview.EmptyViewActivity;
 import com.github.jiahuanyu.example.gridviewsort.GridViewSortActivity;
 import com.github.jiahuanyu.example.preference.PreferenceEntranceActivity;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     "DropDownMenu",
                     "拖放排序GridView",
                     "擅用EmptyView",
-                    "Preference"
+                    "Preference",
+                    "耳机回环"
             };
 
     private final Class[] mClass =
@@ -36,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     DropDownMenuActivity.class,
                     GridViewSortActivity.class,
                     EmptyViewActivity.class,
-                    PreferenceEntranceActivity.class
+                    PreferenceEntranceActivity.class,
+                    EarphoneRecycleActivity.class
             };
 
     private ArrayAdapter<String> mAdapter;
