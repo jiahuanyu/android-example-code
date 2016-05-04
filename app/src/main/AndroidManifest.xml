@@ -5,6 +5,7 @@
 
     <!--Service显示Dialog-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- 耳机回环 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
@@ -38,6 +39,10 @@
         <activity
             android:name=".emptyview.EmptyViewActivity"
             android:label="擅用EmptyView"/>
+
+        <activity
+            android:name=".websocket.WebSocketActivity"
+            android:label="WebSocket"/>
 
         <!-- Preference -->
         <activity

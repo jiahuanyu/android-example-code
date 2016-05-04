@@ -14,6 +14,7 @@ import com.github.jiahuanyu.example.emptyview.EmptyViewActivity;
 import com.github.jiahuanyu.example.gridviewsort.GridViewSortActivity;
 import com.github.jiahuanyu.example.preference.PreferenceEntranceActivity;
 import com.github.jiahuanyu.example.servicedialog.ServiceDialogActivity;
+import com.github.jiahuanyu.example.websocket.WebSocketActivity;
 
 
 /**
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     "拖放排序GridView",
                     "擅用EmptyView",
                     "Preference",
-                    "耳机回环"
+                    "耳机回环",
+                    "WebSocket"
             };
 
     private final Class[] mClass =
@@ -39,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     GridViewSortActivity.class,
                     EmptyViewActivity.class,
                     PreferenceEntranceActivity.class,
-                    EarphoneRecycleActivity.class
+                    EarphoneRecycleActivity.class,
+                    WebSocketActivity.class
             };
 
     private ArrayAdapter<String> mAdapter;
