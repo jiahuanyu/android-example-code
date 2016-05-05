@@ -14,7 +14,7 @@
 <img src="./images/emptyview.gif" width="200px" height="auto" />
 
 ### Android Preference
-<img src="./images/preference.gif" width="200px" height="auto" />
+<img src="./images/preference.png" width="200px" height="auto" />
 
 ### 耳机回环（对准麦克风说话，耳机传出响应内容） —— Android 5.0以上的机器目前存在问题
 
