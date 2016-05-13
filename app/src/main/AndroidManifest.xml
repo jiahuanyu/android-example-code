@@ -44,6 +44,14 @@
             android:name=".websocket.WebSocketActivity"
             android:label="WebSocket"/>
 
+        <activity
+            android:name=".viewlocation.ViewLocationActivity"
+            android:label="ViewLocation"/>
+
+        <activity
+            android:name=".leak.LeakActivity"
+            android:label="LeakActivity"/>
+
         <!-- Preference -->
         <activity
             android:name=".preference.ExamplePreferenceActivity"

@@ -12,8 +12,10 @@ import com.github.jiahuanyu.example.dropdownmenu.DropDownMenuActivity;
 import com.github.jiahuanyu.example.earphonerecycle.EarphoneRecycleActivity;
 import com.github.jiahuanyu.example.emptyview.EmptyViewActivity;
 import com.github.jiahuanyu.example.gridviewsort.GridViewSortActivity;
+import com.github.jiahuanyu.example.leak.LeakActivity;
 import com.github.jiahuanyu.example.preference.PreferenceEntranceActivity;
 import com.github.jiahuanyu.example.servicedialog.ServiceDialogActivity;
+import com.github.jiahuanyu.example.viewlocation.ViewLocationActivity;
 import com.github.jiahuanyu.example.websocket.WebSocketActivity;
 
 
@@ -31,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     "擅用EmptyView",
                     "Preference",
                     "耳机回环",
-                    "WebSocket"
+                    "WebSocket",
+                    "ViewLocation",
+                    "内存泄漏检查"
             };
 
     private final Class[] mClass =
@@ -42,7 +46,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     EmptyViewActivity.class,
                     PreferenceEntranceActivity.class,
                     EarphoneRecycleActivity.class,
-                    WebSocketActivity.class
+                    WebSocketActivity.class,
+                    ViewLocationActivity.class,
+                    LeakActivity.class
             };
 
     private ArrayAdapter<String> mAdapter;
