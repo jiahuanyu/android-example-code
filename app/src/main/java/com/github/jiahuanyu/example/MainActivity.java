@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.github.jiahuanyu.example.acceleratescenor.AccelerateSensorActivity;
 import com.github.jiahuanyu.example.dropdownmenu.DropDownMenuActivity;
 import com.github.jiahuanyu.example.earphonerecycle.EarphoneRecycleActivity;
 import com.github.jiahuanyu.example.emptyview.EmptyViewActivity;
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     "耳机回环",
                     "WebSocket",
                     "ViewLocation",
-                    "内存泄漏检查"
+                    "内存泄漏检查",
+                    "加速度传感器"
             };
 
     private final Class[] mClass =
@@ -48,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     EarphoneRecycleActivity.class,
                     WebSocketActivity.class,
                     ViewLocationActivity.class,
-                    LeakActivity.class
+                    LeakActivity.class,
+                    AccelerateSensorActivity.class
             };
 
     private ArrayAdapter<String> mAdapter;

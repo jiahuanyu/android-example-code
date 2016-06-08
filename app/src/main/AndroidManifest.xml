@@ -6,6 +6,8 @@
     <!--Service显示Dialog-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <!-- 耳机回环 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
@@ -69,6 +71,11 @@
         <activity
             android:name=".earphonerecycle.EarphoneRecycleActivity"
             android:label="耳机回环"/>
+
+        <activity
+            android:name=".acceleratescenor.AccelerateSensorActivity"
+            android:label="加速度传感器"
+            android:windowSoftInputMode="stateHidden"/>
 
 
         <service android:name=".servicedialog.MyService"/>
