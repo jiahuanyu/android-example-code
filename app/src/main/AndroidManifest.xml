@@ -78,6 +78,15 @@
             android:windowSoftInputMode="stateHidden"/>
 
 
+        <activity
+            android:name=".layoutinflater.SetFactoryActivity"
+            android:label="LayoutInflater.SetFactory"/>
+
+        <activity
+            android:name=".bitmap.LargeImageViewActivity"
+            android:label="LargeImageViewActivity"/>
+
+
         <service android:name=".servicedialog.MyService"/>
 
     </application>

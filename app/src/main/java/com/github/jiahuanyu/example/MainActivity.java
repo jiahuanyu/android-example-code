@@ -9,10 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.github.jiahuanyu.example.acceleratescenor.AccelerateSensorActivity;
+import com.github.jiahuanyu.example.bitmap.LargeImageViewActivity;
 import com.github.jiahuanyu.example.dropdownmenu.DropDownMenuActivity;
 import com.github.jiahuanyu.example.earphonerecycle.EarphoneRecycleActivity;
 import com.github.jiahuanyu.example.emptyview.EmptyViewActivity;
 import com.github.jiahuanyu.example.gridviewsort.GridViewSortActivity;
+import com.github.jiahuanyu.example.layoutinflater.SetFactoryActivity;
 import com.github.jiahuanyu.example.leak.LeakActivity;
 import com.github.jiahuanyu.example.preference.PreferenceEntranceActivity;
 import com.github.jiahuanyu.example.servicedialog.ServiceDialogActivity;
@@ -37,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     "WebSocket",
                     "ViewLocation",
                     "内存泄漏检查",
-                    "加速度传感器"
+                    "加速度传感器",
+                    "LayoutInflater.SetFactory",
+                    "LargeImageViewActivity"
             };
 
     private final Class[] mClass =
@@ -51,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     WebSocketActivity.class,
                     ViewLocationActivity.class,
                     LeakActivity.class,
-                    AccelerateSensorActivity.class
+                    AccelerateSensorActivity.class,
+                    SetFactoryActivity.class,
+                    LargeImageViewActivity.class
             };
 
     private ArrayAdapter<String> mAdapter;
