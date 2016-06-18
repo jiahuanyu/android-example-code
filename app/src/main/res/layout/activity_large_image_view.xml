@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <com.github.jiahuanyu.example.bitmap.LargeImageView
+    <com.github.jiahuanyu.example.ui.LargeImageView
         android:id="@+id/id_largeImageview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

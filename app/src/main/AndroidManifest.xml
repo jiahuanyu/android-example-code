@@ -3,14 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <!--Service显示Dialog-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
-    <!-- 耳机回环 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 
     <application
         android:allowBackup="true"
@@ -26,68 +24,75 @@
             </intent-filter>
         </activity>
 
+        <!-- UI Start -->
         <activity
-            android:name=".servicedialog.ServiceDialogActivity"
-            android:label="在Service中弹出对话框"/>
+            android:name=".ui.UIMenuActivity"
+            android:label="@string/title_activity_ui_menu"/>
 
         <activity
-            android:name=".dropdownmenu.DropDownMenuActivity"
-            android:label="DropDownMenu"/>
+            android:name=".ui.ServiceDialogActivity"
+            android:label="@string/title_activity_service_dialog"/>
 
         <activity
-            android:name=".gridviewsort.GridViewSortActivity"
-            android:label="拖放排序GridView"/>
+            android:name=".ui.DropDownMenuActivity"
+            android:label="@string/title_activity_drop_down_menu"/>
 
         <activity
-            android:name=".emptyview.EmptyViewActivity"
-            android:label="擅用EmptyView"/>
+            android:name=".ui.LargeImageViewActivity"
+            android:label="@string/title_activity_large_image_view"/>
 
         <activity
-            android:name=".websocket.WebSocketActivity"
-            android:label="WebSocket"/>
+            android:name=".ui.GridViewSortActivity"
+            android:label="@string/title_activity_sort_grid_view"/>
 
         <activity
-            android:name=".viewlocation.ViewLocationActivity"
-            android:label="ViewLocation"/>
+            android:name=".ui.EmptyViewActivity"
+            android:label="@string/title_activity_empty_view"/>
 
         <activity
-            android:name=".leak.LeakActivity"
-            android:label="LeakActivity"/>
-
-        <!-- Preference -->
-        <activity
-            android:name=".preference.ExamplePreferenceActivity"
-            android:label="Android Preference"/>
+            android:name=".ui.PreferenceEntranceActivity"
+            android:label="@string/title_activity_preference"/>
 
         <activity
-            android:name=".preference.PreferenceEntranceActivity"
-            android:label="Preference"/>
+            android:name=".ui.PreferenceActivity"
+            android:label="Android Native Preference"/>
 
         <activity
-            android:name=".preference.ExampleSupportPreferenceActivity"
-            android:label="Library Preference"/>
-
-        <!-- Earphone Recycle -->
-        <activity
-            android:name=".earphonerecycle.EarphoneRecycleActivity"
-            android:label="耳机回环"/>
+            android:name=".ui.PreferenceSupportActivity"
+            android:label="Material Library Preference"/>
 
         <activity
-            android:name=".acceleratescenor.AccelerateSensorActivity"
-            android:label="加速度传感器"
+            android:name=".ui.LayoutInflaterSetFactoryActivity"
+            android:label="@string/title_activity_layout_inflater_set_factory"/>
+        <!-- UI End -->
+
+
+        <!-- Sensor Start -->
+        <activity
+            android:name=".sensor.SensorMenuActivity"
+            android:label="@string/title_activity_sensor_menu"/>
+
+        <activity
+            android:name=".sensor.AccelerateSensorActivity"
+            android:label="@string/title_activity_accelerate_sensor"
             android:windowSoftInputMode="stateHidden"/>
+        <!-- Sensor End -->
 
+
+        <!-- Function Start -->
+        <activity
+            android:name=".function.FunctionMenuActivity"
+            android:label="@string/title_activity_function_menu"/>
 
         <activity
-            android:name=".layoutinflater.SetFactoryActivity"
-            android:label="LayoutInflater.SetFactory"/>
-
-        <activity
-            android:name=".bitmap.LargeImageViewActivity"
-            android:label="LargeImageViewActivity"/>
+            android:name=".function.EqualizeActivity"
+            android:label="@string/title_activity_equalize"/>
+        <!-- Function End -->
 
 
-        <service android:name=".servicedialog.MyService"/>
+        <!-- Service Start -->
+        <service android:name=".ui.ServiceDialogActivity$DialogService"></service>
+        <!-- Service End -->
 
     </application>
 

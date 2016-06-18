@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="menu_list_main">
+        <item>@string/title_activity_ui_menu</item>
+        <item>@string/title_activity_sensor_menu</item>
+        <item>@string/title_activity_function_menu</item>
+    </string-array>
+
+    <string-array name="menu_list_ui">
+        <item>@string/title_activity_service_dialog</item>
+        <item>@string/title_activity_drop_down_menu</item>
+        <item>@string/title_activity_large_image_view</item>
+        <item>@string/title_activity_sort_grid_view</item>
+        <item>@string/title_activity_empty_view</item>
+        <item>@string/title_activity_preference</item>
+        <item>@string/title_activity_layout_inflater_set_factory</item>
+    </string-array>
+
+    <string-array name="menu_list_sensor">
+        <item>@string/title_activity_accelerate_sensor</item>
+    </string-array>
+
+    <string-array name="menu_list_function">
+        <item>@string/title_activity_equalize</item>
+    </string-array>
+
     <string-array name="entryvalues_list_preference">
         <item>1</item>
         <item>2</item>
@@ -7,6 +31,7 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
     <string-array name="entries_list_preference">
         <item>上海</item>
         <item>北京</item>
