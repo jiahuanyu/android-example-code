@@ -64,6 +64,10 @@
         <activity
             android:name=".ui.LayoutInflaterSetFactoryActivity"
             android:label="@string/title_activity_layout_inflater_set_factory"/>
+
+        <activity
+            android:name=".ui.InputEditTextActivity"
+            android:label="@string/title_activity_input_edit_text"/>
         <!-- UI End -->
 
 
