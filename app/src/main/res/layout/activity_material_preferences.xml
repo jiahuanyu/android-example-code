@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yarolegovich.mp.MaterialPreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                                              xmlns:app="http://schemas.android.com/apk/res-auto"
+                                              android:layout_width="match_parent"
+                                              android:layout_height="match_parent"
+                                              android:orientation="vertical">
+
+    <com.yarolegovich.mp.MaterialPreferenceCategory
+        android:layout_width="match_parent"
+        app:mpc_title="Fuck U"
+        android:layout_height="wrap_content">
+
+        <com.yarolegovich.mp.MaterialSwitchPreference
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mp_icon="@mipmap/ic_launcher"
+            app:mp_key="xx"
+            app:mp_title="xxx"/>
+
+        <com.yarolegovich.mp.MaterialStandardPreference
+            android:id="@+id/pref_configs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mp_icon="@mipmap/ic_launcher"
+            app:mp_title="xxx"/>
+
+        <com.yarolegovich.mp.MaterialStandardPreference
+            android:id="@+id/pref_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:mp_icon="@mipmap/ic_launcher"
+            app:mp_title="asdfasf"/>
+
+    </com.yarolegovich.mp.MaterialPreferenceCategory>
+</com.yarolegovich.mp.MaterialPreferenceScreen>

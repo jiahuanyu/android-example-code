@@ -12,9 +12,9 @@
         <item>@string/title_activity_large_image_view</item>
         <item>@string/title_activity_sort_grid_view</item>
         <item>@string/title_activity_empty_view</item>
-        <item>@string/title_activity_preference</item>
         <item>@string/title_activity_layout_inflater_set_factory</item>
         <item>@string/title_activity_input_edit_text</item>
+        <item>@string/title_activity_material_preferences</item>
     </string-array>
 
     <string-array name="menu_list_sensor">

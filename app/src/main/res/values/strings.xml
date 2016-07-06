@@ -8,9 +8,9 @@
     <string name="title_activity_large_image_view">大图显示</string>
     <string name="title_activity_sort_grid_view">可拖放排序GridView</string>
     <string name="title_activity_empty_view">使用EmptyView</string>
-    <string name="title_activity_preference">Preference</string>
     <string name="title_activity_layout_inflater_set_factory">LayoutInflater.SetFactory</string>
     <string name="title_activity_input_edit_text">InputEditText</string>
+    <string name="title_activity_material_preferences">MaterialPreferences</string>
     <!-- UI End -->
 
     <!-- Sensor Start -->

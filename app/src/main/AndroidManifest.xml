@@ -50,24 +50,16 @@
             android:label="@string/title_activity_empty_view"/>
 
         <activity
-            android:name=".ui.PreferenceEntranceActivity"
-            android:label="@string/title_activity_preference"/>
-
-        <activity
-            android:name=".ui.PreferenceActivity"
-            android:label="Android Native Preference"/>
-
-        <activity
-            android:name=".ui.PreferenceSupportActivity"
-            android:label="Material Library Preference"/>
-
-        <activity
             android:name=".ui.LayoutInflaterSetFactoryActivity"
             android:label="@string/title_activity_layout_inflater_set_factory"/>
 
         <activity
             android:name=".ui.InputEditTextActivity"
             android:label="@string/title_activity_input_edit_text"/>
+
+        <activity
+            android:name=".ui.MaterialPreferencesActivity"
+            android:label="@string/title_activity_material_preferences"/>
         <!-- UI End -->
 
 

@@ -17,6 +17,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
-    compile 'com.github.AndroidDeveloperLB:MaterialPreferenceLibrary:7'
+    compile 'com.yarolegovich:mp:1.0.5'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.5'
 }
