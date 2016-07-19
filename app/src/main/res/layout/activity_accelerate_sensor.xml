@@ -32,18 +32,6 @@
                     android:onClick="startLog"
                     android:text="开启日志"/>
 
-                <!--<Button-->
-                <!--android:id="@+id/activity_accelerate_delete_new_log_btn"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="删除最新日志"/>-->
-
-                <!--<Button-->
-                <!--android:id="@+id/activity_accelerate_delete_log_btn"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="删除日志"/>-->
-
                 <TextView
                     android:id="@+id/activity_accelerate_log_name_tv"
                     android:layout_width="wrap_content"
@@ -52,29 +40,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/activity_accelerate_set_axis_parallel_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="设置主轴"/>
-
-                <TextView
-                    android:id="@+id/activity_accelerate_axis_parallel_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/activity_accelerate_clean_chart_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="清空图表数据（手机太卡就清空一下）"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

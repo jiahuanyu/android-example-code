@@ -22,4 +22,10 @@
     <string name="title_activity_function_menu">功能性相关示例</string>
     <string name="title_activity_equalize">均衡器</string>
     <!-- Function End -->
+
+
+    <!-- Application Start -->
+    <string name="title_activity_application_menu">应用相关示例</string>
+    <string name="title_activity_car_motion_detection">XXX状态检测</string>
+    <!-- Application End-->
 </resources>

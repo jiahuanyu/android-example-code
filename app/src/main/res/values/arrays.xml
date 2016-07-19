@@ -4,6 +4,7 @@
         <item>@string/title_activity_ui_menu</item>
         <item>@string/title_activity_sensor_menu</item>
         <item>@string/title_activity_function_menu</item>
+        <item>@string/title_activity_application_menu</item>
     </string-array>
 
     <string-array name="menu_list_ui">
@@ -23,6 +24,10 @@
 
     <string-array name="menu_list_function">
         <item>@string/title_activity_equalize</item>
+    </string-array>
+
+    <string-array name="menu_list_application">
+        <item>@string/title_activity_car_motion_detection</item>
     </string-array>
 
     <string-array name="entryvalues_list_preference">

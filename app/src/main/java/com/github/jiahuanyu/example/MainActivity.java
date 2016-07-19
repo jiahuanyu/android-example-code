@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.github.jiahuanyu.example.application.ApplicationMenuActivity;
 import com.github.jiahuanyu.example.function.FunctionMenuActivity;
 import com.github.jiahuanyu.example.sensor.SensorMenuActivity;
 import com.github.jiahuanyu.example.ui.UIMenuActivity;
@@ -23,7 +24,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             {
                     UIMenuActivity.class,
                     SensorMenuActivity.class,
-                    FunctionMenuActivity.class
+                    FunctionMenuActivity.class,
+                    ApplicationMenuActivity.class
             };
 
     @Override

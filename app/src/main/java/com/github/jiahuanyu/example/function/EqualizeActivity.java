@@ -49,7 +49,7 @@ public class EqualizeActivity extends BaseActivity
         mLinearLayout.setOrientation(LinearLayout.VERTICAL);
         mLinearLayout.addView(mStatusTextView);
 
-        setContentView(mLinearLayout);
+        initActivity(true, mLinearLayout);
 
         mMediaPlayer = MediaPlayer.create(this, R.raw.music);
 

@@ -56,9 +56,6 @@ public class AccelerateSensorActivity extends BaseActivity
     private File mLogFile;
     private FileOutputStream mFileOutputStream;
 
-
-    private String[] mAxisArray = {"X", "Y", "Z"};
-
     private TextView mXValue;
     private TextView mYValue;
     private TextView mZValue;
@@ -66,14 +63,6 @@ public class AccelerateSensorActivity extends BaseActivity
     private TextView mDiffValue;
 
     private TextView mLogName;
-
-    private TextView mAxisParallel;
-
-    private Button mDeleteLogBtn;
-
-    private Button mSetAxisParallelBtn;
-
-    private Button mCleanChatBtn;
 
     private PowerManager mPowerManager;
 
@@ -86,8 +75,6 @@ public class AccelerateSensorActivity extends BaseActivity
     private float[] mAccelerateData = new float[3];
 
     private SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
-
-    private String mCurrentAxisParallel = "Y";
 
     private int mCollectionCount;
 
@@ -282,17 +269,8 @@ public class AccelerateSensorActivity extends BaseActivity
         mDiffValue = (TextView) findViewById(R.id.activity_accelerate_sensor_diff_value_tv);
 
         mLogName = (TextView) findViewById(R.id.activity_accelerate_log_name_tv);
-        mAxisParallel = (TextView) findViewById(R.id.activity_accelerate_axis_parallel_tv);
-        mAxisParallel.setText(mCurrentAxisParallel);
 
         mCollectionRateEdit = (EditText) findViewById(R.id.activity_accelerate_sensor_rate_et);
-
-
-        mSetAxisParallelBtn = (Button) findViewById(R.id.activity_accelerate_set_axis_parallel_btn);
-        mSetAxisParallelBtn.setOnClickListener(mOnClickListener);
-
-        mCleanChatBtn = (Button) findViewById(R.id.activity_accelerate_clean_chart_btn);
-        mCleanChatBtn.setOnClickListener(mOnClickListener);
 
         mXAxisLineChart = (LineChart) findViewById(R.id.activity_accelerate_x_axis_chat);
         mXAxisLineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -350,54 +328,12 @@ public class AccelerateSensorActivity extends BaseActivity
         display();
     }
 
-    private View.OnClickListener mOnClickListener = new View.OnClickListener()
-    {
-        @Override
-        public void onClick(View v)
-        {
-            switch (v.getId())
-            {
-                case R.id.activity_accelerate_set_axis_parallel_btn:
-                    new AlertDialog.Builder(AccelerateSensorActivity.this).setTitle("选择主轴").setItems(mAxisArray, new DialogInterface.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which)
-                        {
-                            mCurrentAxisParallel = mAxisArray[which];
-                            mAxisParallel.setText(mCurrentAxisParallel);
-                        }
-                    }).show();
-                    break;
-
-                case R.id.activity_accelerate_clean_chart_btn:
-                    mXAxisXValues.clear();
-                    mXAxisYValues.clear();
-
-                    mYAxisXValues.clear();
-                    mYAxisYValues.clear();
-
-                    mZAxisXValues.clear();
-                    mZAxisYValues.clear();
-
-                    mTotalAxisXValues.clear();
-                    mTotalAxisYValues.clear();
-
-                    mDiffAxisXValues.clear();
-                    mDiffAxisYValues.clear();
-
-                    mCollectionCount = 0;
-                    break;
-            }
-        }
-    };
-
     public void startLog(View v)
     {
         if (mLog)
         {
             ((Button) v).setText("开启日志");
             mLog = false;
-            mDeleteLogBtn.setEnabled(true);
         }
         else
         {
@@ -407,7 +343,7 @@ public class AccelerateSensorActivity extends BaseActivity
                 logDirectory.mkdirs();
             }
 
-            String logName = mDateFormat.format(new Date()) + mCurrentAxisParallel;
+            String logName = mDateFormat.format(new Date());
 
             mLogFile = new File(Environment.getExternalStorageDirectory() + File.separator + LOG_DIRECTORY + File.separator + logName);
 
@@ -415,7 +351,6 @@ public class AccelerateSensorActivity extends BaseActivity
 
             ((Button) v).setText("停止日志");
             mLog = true;
-            mDeleteLogBtn.setEnabled(false);
         }
     }
 
