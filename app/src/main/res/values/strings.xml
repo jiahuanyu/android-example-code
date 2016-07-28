@@ -11,6 +11,7 @@
     <string name="title_activity_layout_inflater_set_factory">LayoutInflater.SetFactory</string>
     <string name="title_activity_input_edit_text">InputEditText</string>
     <string name="title_activity_material_preferences">MaterialPreferences</string>
+    <string name="title_activity_recycler_view">RecycleView</string>
     <!-- UI End -->
 
     <!-- Sensor Start -->

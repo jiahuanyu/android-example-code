@@ -1,14 +1,13 @@
-<manifest
-    package="com.github.jiahuanyu.example"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.github.jiahuanyu.example">
 
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:allowBackup="true"
@@ -19,82 +18,86 @@
 
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <!-- UI Start -->
         <activity
             android:name=".ui.UIMenuActivity"
-            android:label="@string/title_activity_ui_menu"/>
+            android:label="@string/title_activity_ui_menu" />
 
         <activity
             android:name=".ui.ServiceDialogActivity"
-            android:label="@string/title_activity_service_dialog"/>
+            android:label="@string/title_activity_service_dialog" />
 
         <activity
             android:name=".ui.DropDownMenuActivity"
-            android:label="@string/title_activity_drop_down_menu"/>
+            android:label="@string/title_activity_drop_down_menu" />
 
         <activity
             android:name=".ui.LargeImageViewActivity"
-            android:label="@string/title_activity_large_image_view"/>
+            android:label="@string/title_activity_large_image_view" />
 
         <activity
             android:name=".ui.GridViewSortActivity"
-            android:label="@string/title_activity_sort_grid_view"/>
+            android:label="@string/title_activity_sort_grid_view" />
 
         <activity
             android:name=".ui.EmptyViewActivity"
-            android:label="@string/title_activity_empty_view"/>
+            android:label="@string/title_activity_empty_view" />
 
         <activity
             android:name=".ui.LayoutInflaterSetFactoryActivity"
-            android:label="@string/title_activity_layout_inflater_set_factory"/>
+            android:label="@string/title_activity_layout_inflater_set_factory" />
 
         <activity
             android:name=".ui.InputEditTextActivity"
-            android:label="@string/title_activity_input_edit_text"/>
+            android:label="@string/title_activity_input_edit_text" />
 
         <activity
             android:name=".ui.MaterialPreferencesActivity"
-            android:label="@string/title_activity_material_preferences"/>
+            android:label="@string/title_activity_material_preferences" />
+
+        <activity
+            android:name=".ui.RecyclerViewActivity"
+            android:label="@string/title_activity_recycler_view" />
         <!-- UI End -->
 
 
         <!-- Sensor Start -->
         <activity
             android:name=".sensor.SensorMenuActivity"
-            android:label="@string/title_activity_sensor_menu"/>
+            android:label="@string/title_activity_sensor_menu" />
 
         <activity
             android:name=".sensor.AccelerateSensorActivity"
             android:label="@string/title_activity_accelerate_sensor"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
         <!-- Sensor End -->
 
 
         <!-- Function Start -->
         <activity
             android:name=".function.FunctionMenuActivity"
-            android:label="@string/title_activity_function_menu"/>
+            android:label="@string/title_activity_function_menu" />
 
         <activity
             android:name=".function.EqualizeActivity"
-            android:label="@string/title_activity_equalize"/>
+            android:label="@string/title_activity_equalize" />
         <!-- Function End -->
 
 
         <!-- Application Start -->
         <activity
             android:name=".application.ApplicationMenuActivity"
-            android:label="@string/title_activity_application_menu"/>
+            android:label="@string/title_activity_application_menu" />
 
         <activity
             android:name=".application.CarMotionDetectionActivity"
             android:label="@string/title_activity_car_motion_detection"
-            android:windowSoftInputMode="stateHidden"/>
+            android:windowSoftInputMode="stateHidden" />
 
         <!-- Application End -->
 

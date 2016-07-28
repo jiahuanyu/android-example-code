@@ -16,6 +16,7 @@
         <item>@string/title_activity_layout_inflater_set_factory</item>
         <item>@string/title_activity_input_edit_text</item>
         <item>@string/title_activity_material_preferences</item>
+        <item>@string/title_activity_recycler_view</item>
     </string-array>
 
     <string-array name="menu_list_sensor">

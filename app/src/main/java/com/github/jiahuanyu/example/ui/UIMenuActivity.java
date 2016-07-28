@@ -27,7 +27,8 @@ public class UIMenuActivity extends BaseActivity implements AdapterView.OnItemCl
                     EmptyViewActivity.class,
                     LayoutInflaterSetFactoryActivity.class,
                     InputEditTextActivity.class,
-                    MaterialPreferencesActivity.class
+                    MaterialPreferencesActivity.class,
+                    RecyclerViewActivity.class
             };
 
     @Override
