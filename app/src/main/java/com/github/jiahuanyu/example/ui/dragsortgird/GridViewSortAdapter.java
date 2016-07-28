@@ -1,4 +1,4 @@
-package com.github.jiahuanyu.example.ui;
+package com.github.jiahuanyu.example.ui.dragsortgird;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

@@ -1,4 +1,4 @@
-package com.github.jiahuanyu.example.ui;
+package com.github.jiahuanyu.example.ui.dragsortgird;
 
 import android.os.Bundle;
 import android.view.View;
