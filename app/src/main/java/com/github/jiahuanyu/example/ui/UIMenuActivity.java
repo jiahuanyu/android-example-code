@@ -11,6 +11,7 @@ import android.widget.ListView;
 import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
 import com.github.jiahuanyu.example.ui.dragsortgird.GridViewSortActivity;
+import com.github.jiahuanyu.example.ui.recyclerview.RecyclerViewActivity;
 
 /**
  * Created by doom on 16/6/18.

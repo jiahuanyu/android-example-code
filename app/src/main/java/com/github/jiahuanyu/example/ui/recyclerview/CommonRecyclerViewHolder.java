@@ -1,4 +1,4 @@
-package com.github.jiahuanyu.example.ui;
+package com.github.jiahuanyu.example.ui.recyclerview;
 
 import android.content.Context;
 import android.graphics.Bitmap;

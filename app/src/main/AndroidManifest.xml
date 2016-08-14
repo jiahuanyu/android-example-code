@@ -61,7 +61,7 @@
             android:label="@string/title_activity_material_preferences" />
 
         <activity
-            android:name=".ui.RecyclerViewActivity"
+            android:name=".ui.recyclerview.RecyclerViewActivity"
             android:label="@string/title_activity_recycler_view" />
         <!-- UI End -->
 

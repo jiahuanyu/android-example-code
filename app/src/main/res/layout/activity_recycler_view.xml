@@ -4,11 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
+    <com.github.jiahuanyu.example.ui.recyclerview.CommonRecycleView
         android:id="@+id/activity_recycler_view_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </com.github.jiahuanyu.example.ui.recyclerview.CommonRecycleView>
 
 </LinearLayout>
