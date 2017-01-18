@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="设置面板"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,13 +30,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="startLog"
-                    android:text="开启日志"/>
+                    android:text="开启日志" />
 
                 <TextView
                     android:id="@+id/activity_accelerate_log_name_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"/>
+                    android:gravity="center" />
 
             </LinearLayout>
 
@@ -57,14 +57,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:text="100"/>
+                        android:text="100" />
                 </android.support.design.widget.TextInputLayout>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="setCollectionRate"
-                    android:text="设置"/>
+                    android:text="设置" />
             </LinearLayout>
 
 
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="信息面板"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="X轴"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -103,7 +103,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Y轴"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Z轴"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -119,7 +119,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="合成"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -128,7 +128,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="合成 - Z"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -142,35 +142,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/activity_accelerate_sensor_y_value_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/activity_accelerate_sensor_z_value_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/activity_accelerate_sensor_total_value_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center" />
 
                 <TextView
                     android:id="@+id/activity_accelerate_sensor_diff_value_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"/>
+                    android:gravity="center" />
 
             </LinearLayout>
         </LinearLayout>
@@ -188,13 +188,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="X轴加速度曲线"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/activity_accelerate_x_axis_chat"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -211,13 +211,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Y轴加速度曲线"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/activity_accelerate_y_axis_chat"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -234,13 +234,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Z轴加速度曲线"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/activity_accelerate_z_axis_chat"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -256,13 +256,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="合成加速度曲线"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/activity_accelerate_total_axis_chat"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -278,13 +278,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="合成-Z加速度曲线"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/activity_accelerate_diff_axis_chat"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
         </LinearLayout>
 

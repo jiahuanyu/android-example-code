@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.jiahuanyu.example.ui.dragsortgird.DragSortGridView
+<com.github.jiahuanyu.example.ui.dragsortgird.DragSortGridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_grid_view_sort_main"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"

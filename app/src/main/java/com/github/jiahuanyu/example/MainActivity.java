@@ -4,31 +4,39 @@ package com.github.jiahuanyu.example;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-
-import com.ashokvarma.bottomnavigation.BottomNavigationBar;
-import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 
 /**
  * Created by doom on 16/3/30.
  */
-public class MainActivity extends ToolbarActivity {
+public class MainActivity extends BaseActivity {
+
+    private Toolbar mToolbar;
+//    private NavigationView mNavigationView;
+    private DrawerLayout mDrawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initializeActivity(R.string.app_name, false, R.layout.activity_main);
+        initializeActivity(R.layout.activity_main);
         initializeView();
         setDefaultFragment();
     }
 
     private void initializeView() {
-        BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.activity_main_bottom_navigation_bar);
-        bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Home"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Books"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Music"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Movies & TV"))
-                .initialise();
+        mToolbar = (Toolbar) findViewById(R.id.app_bar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.activity_main_drawerlayout);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.app_name, R.string.app_name);
+        actionBarDrawerToggle.syncState();
+        mDrawerLayout.addDrawerListener(actionBarDrawerToggle);
+//        mNavigationView = (NavigationView) findViewById(R.id.activity_main_navigation_view);
     }
 
 
@@ -39,4 +47,13 @@ public class MainActivity extends ToolbarActivity {
         transaction.commit();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
