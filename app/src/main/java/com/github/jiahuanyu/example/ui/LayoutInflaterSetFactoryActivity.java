@@ -12,32 +12,28 @@ import android.view.View;
 
 import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 
 /**
  * Created by doom on 16/6/13.
  */
-public class LayoutInflaterSetFactoryActivity extends BaseActivity
-{
+public class LayoutInflaterSetFactoryActivity extends ToolbarActivity {
     private static final String TAG = "LayoutInflaterSetFactoryActivity";
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
-        LayoutInflaterCompat.setFactory(LayoutInflater.from(this), new LayoutInflaterFactory()
-        {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        LayoutInflaterCompat.setFactory(LayoutInflater.from(this), new LayoutInflaterFactory() {
             @Override
-            public View onCreateView(View parent, String name, Context context, AttributeSet attrs)
-            {
+            public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
                 Log.d(TAG, "Component Name = " + name);
                 int n = attrs.getAttributeCount();
-                for (int i = 0; i < n; i++)
-                {
+                for (int i = 0; i < n; i++) {
                     Log.d(TAG, attrs.getAttributeName(i) + " , " + attrs.getAttributeValue(i));
                 }
                 return null;
             }
         });
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_set_factory);
+        initializeActivity(R.string.title_activity_layout_inflater_set_factory, true, R.layout.activity_set_factory);
     }
 }

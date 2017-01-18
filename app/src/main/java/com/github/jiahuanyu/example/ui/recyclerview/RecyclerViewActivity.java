@@ -6,8 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.widget.TextView;
 
-import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +15,14 @@ import java.util.List;
 /**
  * Created by doom on 16/7/20.
  */
-public class RecyclerViewActivity extends BaseActivity {
+public class RecyclerViewActivity extends ToolbarActivity {
     private CommonRecycleView mRecyclerView;
     private List<String> mDataList = new ArrayList<String>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_recycler_view);
+        initializeActivity(R.string.title_activity_recycler_view, true, R.layout.activity_recycler_view);
         initializeData();
         mRecyclerView = (CommonRecycleView) findViewById(R.id.activity_recycler_view_list);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

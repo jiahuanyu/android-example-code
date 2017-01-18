@@ -19,14 +19,13 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 
 /**
  * Created by doom on 16/6/18.
  */
-public class EqualizeActivity extends BaseActivity
-{
+public class EqualizeActivity extends ToolbarActivity {
     private static final float VISUALIZER_HEIGHT_DIP = 160f;
 
     private MediaPlayer mMediaPlayer;
@@ -39,8 +38,7 @@ public class EqualizeActivity extends BaseActivity
     private TextView mInfoView;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mStatusTextView = new TextView(this);
@@ -49,7 +47,7 @@ public class EqualizeActivity extends BaseActivity
         mLinearLayout.setOrientation(LinearLayout.VERTICAL);
         mLinearLayout.addView(mStatusTextView);
 
-        initActivity(true, mLinearLayout);
+        // initializeActivity(R.string.title_activity_equalize, true, mLinearLayout);
 
         mMediaPlayer = MediaPlayer.create(this, R.raw.music);
 
@@ -58,10 +56,8 @@ public class EqualizeActivity extends BaseActivity
 
         mVisualizer.setEnabled(true);
 
-        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-        {
-            public void onCompletion(MediaPlayer mediaPlayer)
-            {
+        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mediaPlayer) {
                 mVisualizer.setEnabled(false);
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 setVolumeControlStream(AudioManager.STREAM_SYSTEM);
@@ -76,8 +72,7 @@ public class EqualizeActivity extends BaseActivity
     }
 
 
-    private void setupEqualizerFxAndUI()
-    {
+    private void setupEqualizerFxAndUI() {
         // Create the Equalizer object (an AudioEffect subclass) and attach it
         // to our media player,
         // with a default priority (0).
@@ -93,8 +88,7 @@ public class EqualizeActivity extends BaseActivity
         final short minEQLevel = mEqualizer.getBandLevelRange()[0];
         final short maxEQLevel = mEqualizer.getBandLevelRange()[1];
 
-        for (short i = 0; i < bands; i++)
-        {
+        for (short i = 0; i < bands; i++) {
             final short band = i;
 
             TextView freqTextView = new TextView(this);
@@ -129,20 +123,16 @@ public class EqualizeActivity extends BaseActivity
             bar.setMax(maxEQLevel - minEQLevel);
             bar.setProgress(mEqualizer.getBandLevel(band));
 
-            bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
-            {
+            bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 public void onProgressChanged(SeekBar seekBar, int progress,
-                                              boolean fromUser)
-                {
+                                              boolean fromUser) {
                     mEqualizer.setBandLevel(band, (short) (progress + minEQLevel));
                 }
 
-                public void onStartTrackingTouch(SeekBar seekBar)
-                {
+                public void onStartTrackingTouch(SeekBar seekBar) {
                 }
 
-                public void onStopTrackingTouch(SeekBar seekBar)
-                {
+                public void onStopTrackingTouch(SeekBar seekBar) {
                 }
             });
 
@@ -154,8 +144,7 @@ public class EqualizeActivity extends BaseActivity
         }
     }
 
-    private void setupVisualizerFxAndUI()
-    {
+    private void setupVisualizerFxAndUI() {
         mVisualizerView = new VisualizerView(this);
         mVisualizerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, (int) (VISUALIZER_HEIGHT_DIP * getResources().getDisplayMetrics().density)));
         mLinearLayout.addView(mVisualizerView);
@@ -164,11 +153,9 @@ public class EqualizeActivity extends BaseActivity
         String infoStr = "";
 
         int[] csr = Visualizer.getCaptureSizeRange();
-        if (csr != null)
-        {
+        if (csr != null) {
             String csrStr = "CaptureSizeRange: ";
-            for (int i = 0; i < csr.length; i++)
-            {
+            for (int i = 0; i < csr.length; i++) {
                 csrStr += csr[i];
                 csrStr += " ";
             }
@@ -185,27 +172,22 @@ public class EqualizeActivity extends BaseActivity
         mVisualizer = new Visualizer(mMediaPlayer.getAudioSessionId());
         mVisualizer.setCaptureSize(256);
         mVisualizer.setDataCaptureListener(
-                new Visualizer.OnDataCaptureListener()
-                {
-                    public void onWaveFormDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate)
-                    {
+                new Visualizer.OnDataCaptureListener() {
+                    public void onWaveFormDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) {
                         mVisualizerView.updateVisualizer(bytes);
                     }
 
-                    public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate)
-                    {
+                    public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate) {
                         mVisualizerView.updateVisualizer(fft);
                     }
                 }, maxCR / 2, false, true);
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         super.onPause();
 
-        if (isFinishing() && mMediaPlayer != null)
-        {
+        if (isFinishing() && mMediaPlayer != null) {
             mVisualizer.release();
             mEqualizer.release();
             mMediaPlayer.release();
@@ -218,8 +200,7 @@ public class EqualizeActivity extends BaseActivity
      * A simple class that draws waveform data received from a
      * {@link Visualizer.OnDataCaptureListener#onWaveFormDataCapture }
      */
-    class VisualizerView extends View
-    {
+    class VisualizerView extends View {
         private byte[] mBytes;
         private float[] mPoints;
         private Rect mRect = new Rect();
@@ -228,14 +209,12 @@ public class EqualizeActivity extends BaseActivity
         private int mSpectrumNum = 48;
         private boolean mFirst = true;
 
-        public VisualizerView(Context context)
-        {
+        public VisualizerView(Context context) {
             super(context);
             init();
         }
 
-        private void init()
-        {
+        private void init() {
             mBytes = null;
 
             mForePaint.setStrokeWidth(8f);
@@ -243,10 +222,8 @@ public class EqualizeActivity extends BaseActivity
             mForePaint.setColor(Color.rgb(0, 128, 255));
         }
 
-        public void updateVisualizer(byte[] fft)
-        {
-            if (mFirst)
-            {
+        public void updateVisualizer(byte[] fft) {
+            if (mFirst) {
                 mInfoView.setText(mInfoView.getText().toString() + "\nCaptureSize: " + fft.length);
                 mFirst = false;
             }
@@ -255,8 +232,7 @@ public class EqualizeActivity extends BaseActivity
             byte[] model = new byte[fft.length / 2 + 1];
 
             model[0] = (byte) Math.abs(fft[0]);
-            for (int i = 2, j = 1; j < mSpectrumNum; )
-            {
+            for (int i = 2, j = 1; j < mSpectrumNum; ) {
                 model[j] = (byte) Math.hypot(fft[i], fft[i + 1]);
                 i += 2;
                 j++;
@@ -266,17 +242,14 @@ public class EqualizeActivity extends BaseActivity
         }
 
         @Override
-        protected void onDraw(Canvas canvas)
-        {
+        protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
 
-            if (mBytes == null)
-            {
+            if (mBytes == null) {
                 return;
             }
 
-            if (mPoints == null || mPoints.length < mBytes.length * 4)
-            {
+            if (mPoints == null || mPoints.length < mBytes.length * 4) {
                 mPoints = new float[mBytes.length * 4];
             }
 
@@ -296,10 +269,8 @@ public class EqualizeActivity extends BaseActivity
             final int baseX = mRect.width() / mSpectrumNum;
             final int height = mRect.height();
 
-            for (int i = 0; i < mSpectrumNum; i++)
-            {
-                if (mBytes[i] < 0)
-                {
+            for (int i = 0; i < mSpectrumNum; i++) {
+                if (mBytes[i] < 0) {
                     mBytes[i] = 127;
                 }
 

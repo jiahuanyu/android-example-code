@@ -7,24 +7,22 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 
 /**
  * Created by doom on 16/3/31.
  */
-public class DropDownMenuActivity extends BaseActivity
-{
+public class DropDownMenuActivity extends ToolbarActivity {
     private ViewGroup mMenuContainer;
     private TabLayout mTabLayout;
     private boolean mShown;
     private boolean mInAnimation;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_drop_down_menu);
+        initializeActivity(R.string.title_activity_drop_down_menu, true, R.layout.activity_drop_down_menu);
 
         mMenuContainer = (ViewGroup) findViewById(R.id.activity_drop_down_menu_container);
         mTabLayout = (TabLayout) findViewById(R.id.activity_drop_down_menu_tablayout);
@@ -39,57 +37,46 @@ public class DropDownMenuActivity extends BaseActivity
         mTabLayout.addTab(mTabLayout.newTab().setText("武汉"));
     }
 
-    public void setMenuVisible(View v)
-    {
-        if (!mInAnimation)
-        {
-            if (mShown)
-            {
+    public void setMenuVisible(final View v) {
+        if (!mInAnimation) {
+            if (mShown) {
                 Animation menuOutAnim = AnimationUtils.loadAnimation(this, R.anim.menu_out);
-                menuOutAnim.setAnimationListener(new Animation.AnimationListener()
-                {
+                menuOutAnim.setAnimationListener(new Animation.AnimationListener() {
                     @Override
-                    public void onAnimationStart(Animation animation)
-                    {
+                    public void onAnimationStart(Animation animation) {
                         mInAnimation = true;
                     }
 
                     @Override
-                    public void onAnimationEnd(Animation animation)
-                    {
+                    public void onAnimationEnd(Animation animation) {
                         mInAnimation = false;
+                        v.setBackground(getResources().getDrawable(R.drawable.ic_expand_more));
                     }
 
                     @Override
-                    public void onAnimationRepeat(Animation animation)
-                    {
+                    public void onAnimationRepeat(Animation animation) {
 
                     }
                 });
                 mMenuContainer.setVisibility(View.GONE);
                 mMenuContainer.setAnimation(menuOutAnim);
                 mShown = false;
-            }
-            else
-            {
+            } else {
                 Animation menuInAnim = AnimationUtils.loadAnimation(this, R.anim.menu_in);
-                menuInAnim.setAnimationListener(new Animation.AnimationListener()
-                {
+                menuInAnim.setAnimationListener(new Animation.AnimationListener() {
                     @Override
-                    public void onAnimationStart(Animation animation)
-                    {
+                    public void onAnimationStart(Animation animation) {
                         mInAnimation = true;
                     }
 
                     @Override
-                    public void onAnimationEnd(Animation animation)
-                    {
+                    public void onAnimationEnd(Animation animation) {
                         mInAnimation = false;
+                        v.setBackground(getResources().getDrawable(R.drawable.ic_expand_less));
                     }
 
                     @Override
-                    public void onAnimationRepeat(Animation animation)
-                    {
+                    public void onAnimationRepeat(Animation animation) {
 
                     }
                 });

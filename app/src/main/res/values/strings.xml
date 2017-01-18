@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">android-example-code</string>
+    <string name="app_name">AndroidExampleCode</string>
 
     <!-- UI Start -->
     <string name="title_activity_ui_menu">UI相关示例</string>
-    <string name="title_activity_service_dialog">Service中弹出Dialog</string>
     <string name="title_activity_drop_down_menu">下拉菜单</string>
     <string name="title_activity_large_image_view">大图显示</string>
     <string name="title_activity_sort_grid_view">可拖放排序GridView</string>
@@ -28,5 +27,6 @@
     <!-- Application Start -->
     <string name="title_activity_application_menu">应用相关示例</string>
     <string name="title_activity_car_motion_detection">XXX状态检测</string>
+    <string name="common_loading">正在加载</string>
     <!-- Application End-->
 </resources>

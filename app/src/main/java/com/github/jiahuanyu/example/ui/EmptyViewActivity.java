@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,7 @@ import java.util.List;
 /**
  * Created by doom on 16/4/7.
  */
-public class EmptyViewActivity extends BaseActivity
-{
+public class EmptyViewActivity extends ToolbarActivity {
     private ListView mListView;
 
     private List<String> mData = new ArrayList<>();
@@ -27,10 +26,9 @@ public class EmptyViewActivity extends BaseActivity
     private ArrayAdapter<String> mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_empty_view);
+        initializeActivity(R.string.title_activity_empty_view, true, R.layout.activity_empty_view);
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mData);
 
         mListView = (ListView) findViewById(R.id.activity_empty_view_list_view);
@@ -48,24 +46,20 @@ public class EmptyViewActivity extends BaseActivity
 
     }
 
-    private View makeHeaderFooterView()
-    {
+    private View makeHeaderFooterView() {
         TextView t = new TextView(this);
         t.setText("ListView头部或者底部");
         t.setGravity(Gravity.CENTER);
         return t;
     }
 
-    public void clearData(View v)
-    {
+    public void clearData(View v) {
         mData.clear();
         mAdapter.notifyDataSetChanged();
     }
 
-    public void loadData(View v)
-    {
-        if (mData.size() == 0)
-        {
+    public void loadData(View v) {
+        if (mData.size() == 0) {
             mData.add("上海");
             mData.add("北京");
             mData.add("成都");

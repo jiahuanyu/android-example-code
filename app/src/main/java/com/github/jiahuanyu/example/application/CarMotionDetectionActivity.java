@@ -17,8 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -37,7 +37,7 @@ import java.util.List;
 /**
  * Created by doom on 16/7/11.
  */
-public class CarMotionDetectionActivity extends BaseActivity {
+public class CarMotionDetectionActivity extends ToolbarActivity {
     private static final String TAG = "CarMotionDetectionActivity";
     private static final String POWER_LOCK_TAG = "CarMotionDetectionActivity";
     private static final String LOG_DIRECTORY = "AccelerateLog";
@@ -208,7 +208,7 @@ public class CarMotionDetectionActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_car_motion_detection);
+        initializeActivity(R.string.title_activity_car_motion_detection, true, R.layout.activity_car_motion_detection);
         initializeView();
     }
 

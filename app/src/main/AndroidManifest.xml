@@ -29,10 +29,6 @@
             android:label="@string/title_activity_ui_menu" />
 
         <activity
-            android:name=".ui.ServiceDialogActivity"
-            android:label="@string/title_activity_service_dialog" />
-
-        <activity
             android:name=".ui.DropDownMenuActivity"
             android:label="@string/title_activity_drop_down_menu" />
 

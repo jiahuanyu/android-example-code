@@ -18,8 +18,7 @@ import java.io.InputStream;
 /**
  * Created by doom on 16/6/13.
  */
-public class LargeImageView extends View
-{
+public class LargeImageView extends View {
     private BitmapRegionDecoder mDecoder;
     /**
      * 图片的宽度和高度
@@ -34,22 +33,18 @@ public class LargeImageView extends View
 
     private static final BitmapFactory.Options options = new BitmapFactory.Options();
 
-    static
-    {
+    static {
         options.inPreferredConfig = Bitmap.Config.RGB_565;
     }
 
 
-    public LargeImageView(Context context, AttributeSet attrs)
-    {
+    public LargeImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initialize();
     }
 
-    public void setInputStream(InputStream is)
-    {
-        try
-        {
+    public void setInputStream(InputStream is) {
+        try {
             mDecoder = BitmapRegionDecoder.newInstance(is, false);
             BitmapFactory.Options tmpOptions = new BitmapFactory.Options();
             // Grab the bounds for the scene dimensions
@@ -59,56 +54,42 @@ public class LargeImageView extends View
             mImageHeight = tmpOptions.outHeight;
             requestLayout();
             invalidate();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally
-        {
+        } finally {
 
-            try
-            {
+            try {
                 if (is != null) is.close();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
             }
         }
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent event)
-    {
+    public boolean onTouchEvent(MotionEvent event) {
         mDetector.onTouchEvent(event);
         return true;
     }
 
     @Override
-    protected void onDraw(Canvas canvas)
-    {
+    protected void onDraw(Canvas canvas) {
         Bitmap bm = mDecoder.decodeRegion(mRect, options);
         canvas.drawBitmap(bm, 0, 0, null);
     }
 
-    private void initialize()
-    {
-        mDetector = new MoveGestureDetector(getContext(), new MoveGestureDetector.SimpleMoveGestureDetector()
-        {
+    private void initialize() {
+        mDetector = new MoveGestureDetector(getContext(), new MoveGestureDetector.SimpleMoveGestureDetector() {
             @Override
-            public boolean onMove(MoveGestureDetector detector)
-            {
+            public boolean onMove(MoveGestureDetector detector) {
                 int moveX = (int) detector.getMoveX();
                 int moveY = (int) detector.getMoveY();
 
-                if (mImageWidth > getWidth())
-                {
+                if (mImageWidth > getWidth()) {
                     mRect.offset(-moveX, 0);
                     checkWidth();
                     invalidate();
                 }
-                if (mImageHeight > getHeight())
-                {
+                if (mImageHeight > getHeight()) {
                     mRect.offset(0, -moveY);
                     checkHeight();
                     invalidate();
@@ -120,47 +101,40 @@ public class LargeImageView extends View
     }
 
 
-    private void checkWidth()
-    {
+    private void checkWidth() {
         Rect rect = mRect;
         int imageWidth = mImageWidth;
         int imageHeight = mImageHeight;
 
-        if (rect.right > imageWidth)
-        {
+        if (rect.right > imageWidth) {
             rect.right = imageWidth;
             rect.left = imageWidth - getWidth();
         }
 
-        if (rect.left < 0)
-        {
+        if (rect.left < 0) {
             rect.left = 0;
             rect.right = getWidth();
         }
     }
 
-    private void checkHeight()
-    {
+    private void checkHeight() {
         Rect rect = mRect;
         int imageWidth = mImageWidth;
         int imageHeight = mImageHeight;
 
-        if (rect.bottom > imageHeight)
-        {
+        if (rect.bottom > imageHeight) {
             rect.bottom = imageHeight;
             rect.top = imageHeight - getHeight();
         }
 
-        if (rect.top < 0)
-        {
+        if (rect.top < 0) {
             rect.top = 0;
             rect.bottom = getHeight();
         }
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
-    {
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         int width = getMeasuredWidth();

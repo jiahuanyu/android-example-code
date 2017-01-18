@@ -2,44 +2,63 @@ package com.github.jiahuanyu.example;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+
 
 /**
- * Created by doom on 16/4/7.
+ * Created by doom on 15/6/18.
  */
 public class BaseActivity extends AppCompatActivity {
-    private ProgressDialog mProgressDialog;
-    protected Activity mSelfActivity;
+    private static final String TAG = "BaseActivity";
 
-    protected void initActivity(boolean showHomeUp, int layoutId) {
-        if (layoutId < 0) {
-            throw new RuntimeException("Layout Id must greater than 0");
-        }
-        initActivity(showHomeUp, getLayoutInflater().inflate(layoutId, null));
-    }
+    private ProgressDialog mProgressDialog; // Progress Dialog
+    private ProgressBar mProgressBar;  // Progress Bar
 
-    protected void initActivity(boolean showHomeUp, View layout) {
-        if (layout == null) {
-            throw new RuntimeException("layout should not be null");
-        }
-        mSelfActivity = this;
-        setContentView(layout);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(showHomeUp);
-    }
+    protected Activity mSelfActivity; // 自己
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mSelfActivity = this;
+        buildProgressBar();
     }
+
+    private void buildProgressBar() {
+        mProgressBar = new ProgressBar(this);
+        mProgressBar.setVisibility(View.GONE);
+    }
+
+    protected void initializeActivity(int layoutId) {
+        setContentView(layoutId);
+        initializeActivity(null);
+    }
+
+    protected void initializeActivity(View contentView) {
+        if (contentView != null) {
+            setContentView(contentView);
+        }
+        addProgressBar();
+    }
+
+    /**
+     * 将ProgressBar添加到ContentView中
+     */
+    protected void addProgressBar() {
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.CENTER;
+        addContentView(mProgressBar, params);
+    }
+
 
     protected void showProgressDialog() {
         dismissProgressDialog();
-        mProgressDialog = ProgressDialog.show(this, "", "waiting...", true, false);
+        mProgressDialog = ProgressDialog.show(this, "", getResources().getString(R.string.common_loading), true, false);
     }
 
     protected void dismissProgressDialog() {
@@ -47,5 +66,40 @@ public class BaseActivity extends AppCompatActivity {
             mProgressDialog.dismiss();
             mProgressDialog = null;
         }
+    }
+
+
+    protected void showProgressBar() {
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    protected void dismissProgressBar() {
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.GONE);
+        }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }

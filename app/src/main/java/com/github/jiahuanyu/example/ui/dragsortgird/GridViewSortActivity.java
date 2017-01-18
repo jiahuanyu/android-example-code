@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
-import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,17 +14,15 @@ import java.util.List;
 /**
  * Created by doom on 16/3/31.
  */
-public class GridViewSortActivity extends BaseActivity implements AdapterView.OnItemClickListener
-{
+public class GridViewSortActivity extends ToolbarActivity implements AdapterView.OnItemClickListener {
     private DragSortGridView mGridView;
     private GridViewSortAdapter mAdapter;
     private List<String> mTitleList = new ArrayList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_grid_view_sort);
+        initializeActivity(R.string.title_activity_sort_grid_view, true, R.layout.activity_grid_view_sort);
         mGridView = (DragSortGridView) findViewById(R.id.activity_grid_view_sort_main);
         mTitleList.add("上海");
         mTitleList.add("北京");
@@ -42,8 +40,7 @@ public class GridViewSortActivity extends BaseActivity implements AdapterView.On
     }
 
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
-    {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Toast.makeText(this, mTitleList.get(i), Toast.LENGTH_SHORT).show();
     }
 }

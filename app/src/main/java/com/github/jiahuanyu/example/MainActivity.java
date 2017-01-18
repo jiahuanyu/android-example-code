@@ -1,47 +1,42 @@
 package com.github.jiahuanyu.example;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import com.github.jiahuanyu.example.application.ApplicationMenuActivity;
-import com.github.jiahuanyu.example.function.FunctionMenuActivity;
-import com.github.jiahuanyu.example.sensor.SensorMenuActivity;
-import com.github.jiahuanyu.example.ui.UIMenuActivity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 
 /**
  * Created by doom on 16/3/30.
  */
-public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener
-{
-    private ListView mMenuListView;
-
-    private final Class[] mClass =
-            {
-                    UIMenuActivity.class,
-                    SensorMenuActivity.class,
-                    FunctionMenuActivity.class,
-                    ApplicationMenuActivity.class
-            };
-
+public class MainActivity extends ToolbarActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(false, R.layout.activity_menu);
-        mMenuListView = (ListView) findViewById(R.id.activity_menu_list_view);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.menu_list_main));
-        mMenuListView.setAdapter(adapter);
-        mMenuListView.setOnItemClickListener(this);
+        initializeActivity(R.string.app_name, false, R.layout.activity_main);
+        initializeView();
+        setDefaultFragment();
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l)
-    {
-        startActivity(new Intent(this, mClass[i]));
+    private void initializeView() {
+        BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.activity_main_bottom_navigation_bar);
+        bottomNavigationBar
+                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Home"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Books"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Music"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_alarm, "Movies & TV"))
+                .initialise();
     }
+
+
+    private void setDefaultFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
+        transaction.replace(R.id.activity_main_content, new SampleListFragment());
+        transaction.commit();
+    }
+
 }

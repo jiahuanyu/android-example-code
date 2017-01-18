@@ -8,7 +8,6 @@
     </string-array>
 
     <string-array name="menu_list_ui">
-        <item>@string/title_activity_service_dialog</item>
         <item>@string/title_activity_drop_down_menu</item>
         <item>@string/title_activity_large_image_view</item>
         <item>@string/title_activity_sort_grid_view</item>

@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.github.jiahuanyu.example.BaseActivity;
 import com.github.jiahuanyu.example.R;
+import com.github.jiahuanyu.example.ToolbarActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -41,8 +42,7 @@ import java.util.List;
 /**
  * Created by doom on 16/6/5.
  */
-public class AccelerateSensorActivity extends BaseActivity
-{
+public class AccelerateSensorActivity extends ToolbarActivity {
     private static final String TAG = "AccelerateSensorActivity";
 
     private static final String POWER_LOCK_TAG = "AccelerateSensorActivity";
@@ -102,17 +102,13 @@ public class AccelerateSensorActivity extends BaseActivity
     private List<Entry> mDiffAxisYValues = new ArrayList<>();
 
 
-    private Handler mHandler = new Handler()
-    {
+    private Handler mHandler = new Handler() {
         @Override
-        public void handleMessage(Message msg)
-        {
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if (msg.what == 0)
-            {
+            if (msg.what == 0) {
 
-                if (mAccelerateData[0] == 0 || mAccelerateData[1] == 0 || mAccelerateData[2] == 0)
-                {
+                if (mAccelerateData[0] == 0 || mAccelerateData[1] == 0 || mAccelerateData[2] == 0) {
                     display();
                     return;
                 }
@@ -126,41 +122,35 @@ public class AccelerateSensorActivity extends BaseActivity
 
                 float time = (mCollectionCount * mCollectionRate) / 1000f;
 
-                if (time > 15)
-                {
+                if (time > 15) {
                     mXAxisXValues.remove(0);
                     mXAxisYValues.remove(0);
-                    for (Entry entry : mXAxisYValues)
-                    {
+                    for (Entry entry : mXAxisYValues) {
                         entry.setXIndex(entry.getXIndex() - 1);
                     }
 
                     mYAxisXValues.remove(0);
                     mYAxisYValues.remove(0);
-                    for (Entry entry : mYAxisYValues)
-                    {
+                    for (Entry entry : mYAxisYValues) {
                         entry.setXIndex(entry.getXIndex() - 1);
                     }
 
                     mZAxisXValues.remove(0);
                     mZAxisYValues.remove(0);
-                    for (Entry entry : mZAxisYValues)
-                    {
+                    for (Entry entry : mZAxisYValues) {
                         entry.setXIndex(entry.getXIndex() - 1);
                     }
 
 
                     mTotalAxisXValues.remove(0);
                     mTotalAxisYValues.remove(0);
-                    for (Entry entry : mTotalAxisYValues)
-                    {
+                    for (Entry entry : mTotalAxisYValues) {
                         entry.setXIndex(entry.getXIndex() - 1);
                     }
 
                     mDiffAxisXValues.remove(0);
                     mDiffAxisYValues.remove(0);
-                    for (Entry entry : mDiffAxisYValues)
-                    {
+                    for (Entry entry : mDiffAxisYValues) {
                         entry.setXIndex(entry.getXIndex() - 1);
                     }
                 }
@@ -194,10 +184,8 @@ public class AccelerateSensorActivity extends BaseActivity
 
                 mCollectionCount++;
 
-                if (mLog)
-                {
-                    try
-                    {
+                if (mLog) {
+                    try {
                         StringBuilder sb = new StringBuilder();
 
                         sb.append(format(mAccelerateData[0]));
@@ -210,9 +198,7 @@ public class AccelerateSensorActivity extends BaseActivity
                         mFileOutputStream = new FileOutputStream(mLogFile, true);
                         mFileOutputStream.write(sb.toString().getBytes());
                         mFileOutputStream.close();
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         Log.d(TAG, e.getMessage());
                         e.printStackTrace();
                     }
@@ -228,35 +214,30 @@ public class AccelerateSensorActivity extends BaseActivity
         }
     };
 
-    private SensorEventListener mSensorEventListener = new SensorEventListener()
-    {
+    private SensorEventListener mSensorEventListener = new SensorEventListener() {
         @Override
-        public void onSensorChanged(SensorEvent event)
-        {
+        public void onSensorChanged(SensorEvent event) {
             mAccelerateData[0] = event.values[0];
             mAccelerateData[1] = event.values[1];
             mAccelerateData[2] = event.values[2];
         }
 
         @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy)
-        {
+        public void onAccuracyChanged(Sensor sensor, int accuracy) {
             Log.d(TAG, "onAccuracyChanged: ");
         }
     };
 
-    private String format(float value)
-    {
+    private String format(float value) {
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         return decimalFormat.format(value);
     }
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
-    {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initActivity(true, R.layout.activity_accelerate_sensor);
+        initializeActivity(R.string.title_activity_accelerate_sensor, true, R.layout.activity_accelerate_sensor);
 
         mPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, POWER_LOCK_TAG);
@@ -320,26 +301,20 @@ public class AccelerateSensorActivity extends BaseActivity
 
         Sensor accelerateSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-        if (accelerateSensor != null)
-        {
+        if (accelerateSensor != null) {
             mSensorManager.registerListener(mSensorEventListener, accelerateSensor, SensorManager.SENSOR_DELAY_FASTEST);
         }
 
         display();
     }
 
-    public void startLog(View v)
-    {
-        if (mLog)
-        {
+    public void startLog(View v) {
+        if (mLog) {
             ((Button) v).setText("开启日志");
             mLog = false;
-        }
-        else
-        {
+        } else {
             File logDirectory = new File(Environment.getExternalStorageDirectory() + File.separator + LOG_DIRECTORY);
-            if (!logDirectory.exists())
-            {
+            if (!logDirectory.exists()) {
                 logDirectory.mkdirs();
             }
 
@@ -354,26 +329,21 @@ public class AccelerateSensorActivity extends BaseActivity
         }
     }
 
-    public void setCollectionRate(View v)
-    {
+    public void setCollectionRate(View v) {
         String rate = mCollectionRateEdit.getText().toString();
-        if (!TextUtils.isEmpty(rate))
-        {
+        if (!TextUtils.isEmpty(rate)) {
             mCollectionRate = Integer.parseInt(rate);
         }
     }
 
-    private void display()
-    {
+    private void display() {
         Message msg = new Message();
         msg.what = 0;
         mHandler.sendMessageDelayed(msg, mCollectionRate);
     }
 
-    private LineData generateData(int type)
-    {
-        if (type == 0)
-        {
+    private LineData generateData(int type) {
+        if (type == 0) {
             LineDataSet xSet = new LineDataSet(mXAxisYValues, "X-Acceleration");
             xSet.setLineWidth(1.75f); // 线宽
             xSet.setDrawCircles(false);
@@ -382,9 +352,7 @@ public class AccelerateSensorActivity extends BaseActivity
             xSet.setDrawValues(false);
             LineData data = new LineData(mXAxisXValues, xSet);
             return data;
-        }
-        else if (type == 1)
-        {
+        } else if (type == 1) {
             LineDataSet ySet = new LineDataSet(mYAxisYValues, "Y-Acceleration");
             ySet.setLineWidth(1.75f); // 线宽
             ySet.setDrawCircles(false);
@@ -393,9 +361,7 @@ public class AccelerateSensorActivity extends BaseActivity
             ySet.setDrawValues(false);
             LineData data = new LineData(mYAxisXValues, ySet);
             return data;
-        }
-        else if (type == 2)
-        {
+        } else if (type == 2) {
             LineDataSet zSet = new LineDataSet(mZAxisYValues, "Z-Acceleration");
             zSet.setLineWidth(1.75f); // 线宽
             zSet.setDrawCircles(false);
@@ -404,9 +370,7 @@ public class AccelerateSensorActivity extends BaseActivity
             zSet.setDrawValues(false);
             LineData data = new LineData(mZAxisXValues, zSet);
             return data;
-        }
-        else if (type == 3)
-        {
+        } else if (type == 3) {
             LineDataSet totalSet = new LineDataSet(mTotalAxisYValues, "Total-Acceleration");
             totalSet.setLineWidth(1.75f); // 线宽
             totalSet.setDrawCircles(false);
@@ -415,9 +379,7 @@ public class AccelerateSensorActivity extends BaseActivity
             totalSet.setDrawValues(false);
             LineData data = new LineData(mTotalAxisXValues, totalSet);
             return data;
-        }
-        else if (type == 4)
-        {
+        } else if (type == 4) {
             LineDataSet diffSet = new LineDataSet(mDiffAxisYValues, "Diff-Acceleration");
             diffSet.setLineWidth(1.75f); // 线宽
             diffSet.setDrawCircles(false);
@@ -432,8 +394,7 @@ public class AccelerateSensorActivity extends BaseActivity
 
 
     @Override
-    protected void onDestroy()
-    {
+    protected void onDestroy() {
         super.onDestroy();
         mHandler.removeMessages(0);
         mWakeLock.release();
