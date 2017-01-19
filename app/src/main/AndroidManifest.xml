@@ -82,6 +82,10 @@
         <activity
             android:name=".function.EqualizeActivity"
             android:label="@string/title_activity_equalize" />
+
+        <activity
+            android:name=".function.jni.HelloJNIActivity"
+            android:label="@string/title_activity_hello_jni" />
         <!-- Function End -->
 
 
@@ -94,12 +98,8 @@
             android:name=".application.CarMotionDetectionActivity"
             android:label="@string/title_activity_car_motion_detection"
             android:windowSoftInputMode="stateHidden" />
-
         <!-- Application End -->
 
-        <!-- Service Start -->
-        <service android:name=".ui.ServiceDialogActivity$DialogService"></service>
-        <!-- Service End -->
 
     </application>
 

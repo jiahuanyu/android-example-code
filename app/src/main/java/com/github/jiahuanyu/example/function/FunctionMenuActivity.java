@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import com.github.jiahuanyu.example.R;
 import com.github.jiahuanyu.example.ToolbarActivity;
+import com.github.jiahuanyu.example.function.jni.HelloJNIActivity;
 
 /**
  * Created by doom on 16/6/18.
@@ -19,7 +20,8 @@ public class FunctionMenuActivity extends ToolbarActivity implements AdapterView
 
     private final Class[] mClass =
             {
-                    EqualizeActivity.class
+                    EqualizeActivity.class,
+                    HelloJNIActivity.class
             };
 
     @Override

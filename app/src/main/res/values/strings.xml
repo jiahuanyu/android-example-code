@@ -21,6 +21,7 @@
     <!-- Function Start -->
     <string name="title_activity_function_menu">功能性相关示例</string>
     <string name="title_activity_equalize">均衡器</string>
+    <string name="title_activity_hello_jni">Hello JNI</string>
     <!-- Function End -->
 
 
