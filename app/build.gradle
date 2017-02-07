@@ -6,13 +6,14 @@ android {
 
     defaultConfig {
         applicationId "com.github.jiahuanyu.example"
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 25
         versionCode 1
         versionName "1.0.0"
         ndk {
             moduleName "hello-jni"
-//            ldLibs "log"
+            stl "stlport_static"
+            ldLibs "log"
         }
     }
 }

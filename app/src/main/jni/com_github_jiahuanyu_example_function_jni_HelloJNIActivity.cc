@@ -1,6 +1,5 @@
 #include "com_github_jiahuanyu_example_function_jni_HelloJNIActivity.h"
 
-
 JNIEXPORT jstring JNICALL Java_com_github_jiahuanyu_example_function_jni_HelloJNIActivity_stringFromJNI(
         JNIEnv *env, jobject obj) {
     return env->NewStringUTF("This just a test for Android Studio NDK JNI developer!");
@@ -22,4 +21,5 @@ JNIEXPORT jboolean JNICALL Java_com_github_jiahuanyu_example_function_jni_HelloJ
         fclose(stream);
     }
     env->ReleaseStringUTFChars(path, pathChar);
+    return 0;
 }

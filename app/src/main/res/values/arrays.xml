@@ -25,6 +25,7 @@
     <string-array name="menu_list_function">
         <item>@string/title_activity_equalize</item>
         <item>@string/title_activity_hello_jni</item>
+        <item>@string/title_activity_webview</item>
     </string-array>
 
     <string-array name="menu_list_application">

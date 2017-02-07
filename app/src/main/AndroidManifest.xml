@@ -86,6 +86,9 @@
         <activity
             android:name=".function.jni.HelloJNIActivity"
             android:label="@string/title_activity_hello_jni" />
+
+        <activity android:name=".function.WebViewActivity"
+            android:label="@string/title_activity_webview"/>
         <!-- Function End -->
 
 

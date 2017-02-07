@@ -21,7 +21,8 @@ public class FunctionMenuActivity extends ToolbarActivity implements AdapterView
     private final Class[] mClass =
             {
                     EqualizeActivity.class,
-                    HelloJNIActivity.class
+                    HelloJNIActivity.class,
+                    WebViewActivity.class
             };
 
     @Override
