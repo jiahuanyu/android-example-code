@@ -10,11 +10,6 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0.0"
-        ndk {
-            moduleName "hello-jni"
-            stl "stlport_static"
-            ldLibs "log"
-        }
     }
 }
 
