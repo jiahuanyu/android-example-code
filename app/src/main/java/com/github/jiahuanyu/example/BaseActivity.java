@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
+import butterknife.ButterKnife;
+
 
 /**
  * Created by doom on 15/6/18.
@@ -28,21 +30,14 @@ public class BaseActivity extends AppCompatActivity {
         buildProgressBar();
     }
 
-    private void buildProgressBar() {
-        mProgressBar = new ProgressBar(this);
-        mProgressBar.setVisibility(View.GONE);
-    }
-
     protected void initializeActivity(int layoutId) {
-        setContentView(layoutId);
-        initializeActivity(null);
+        initializeActivity(getLayoutInflater().inflate(layoutId, null));
     }
 
     protected void initializeActivity(View contentView) {
-        if (contentView != null) {
-            setContentView(contentView);
-        }
+        setContentView(contentView);
         addProgressBar();
+        ButterKnife.bind(this);
     }
 
     /**
@@ -54,6 +49,11 @@ public class BaseActivity extends AppCompatActivity {
         addContentView(mProgressBar, params);
     }
 
+
+    private void buildProgressBar() {
+        mProgressBar = new ProgressBar(this);
+        mProgressBar.setVisibility(View.GONE);
+    }
 
     protected void showProgressDialog() {
         dismissProgressDialog();

@@ -1,6 +1,5 @@
 package com.github.jiahuanyu.example;
 
-import android.app.Activity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
@@ -15,7 +14,6 @@ public class ToolbarActivity extends BaseActivity {
     private static final String TAG = "ToolbarActivity";
 
     protected ToolBarHelper mToolBarHelper;
-    protected Activity mSelfActivity;
 
     protected void initializeActivity(int titleId, boolean showHomeUp, int layoutId) {
         initializeActivity(titleId > 0 ? getResources().getString(titleId) : null, showHomeUp, layoutId);
@@ -25,12 +23,12 @@ public class ToolbarActivity extends BaseActivity {
         mToolBarHelper = new ToolBarHelper(this, layoutId);
         Toolbar toolbar = mToolBarHelper.getToolBar();
         initializeActivity(mToolBarHelper.getContentView());
+        toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.common_navigation_back_arrow));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(showHomeUp);
         if (!TextHelper.isEmpty(title)) {
             getSupportActionBar().setTitle(title);
         }
-        mSelfActivity = this;
     }
 
     @Override
