@@ -1,105 +1,52 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.github.jiahuanyu.example">
+    package="me.jiahuan.androidlearn">
 
-
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <!-- UI Start -->
-        <activity
-            android:name=".ui.UIMenuActivity"
-            android:label="@string/title_activity_ui_menu" />
+
+        <activity android:name=".pullrefresh.PullRefreshActivity" />
+
+        <activity android:name=".propertyanimation.PropertyAnimationActivity" />
+
+        <activity android:name=".service.ServiceActivity" />
 
         <activity
-            android:name=".ui.DropDownMenuActivity"
-            android:label="@string/title_activity_drop_down_menu" />
+            android:name=".TransparentActivity"
+            android:theme="@style/AppTheme.Translucent" />
 
-        <activity
-            android:name=".ui.LargeImageViewActivity"
-            android:label="@string/title_activity_large_image_view" />
+        <activity android:name=".handler.HandlerActivity" />
 
-        <activity
-            android:name=".ui.dragsortgird.GridViewSortActivity"
-            android:label="@string/title_activity_sort_grid_view" />
+        <activity android:name=".react.ReactNativeActivity" />
 
-        <activity
-            android:name=".ui.EmptyViewActivity"
-            android:label="@string/title_activity_empty_view" />
+        <activity android:name=".skin.SkinChangeActivity" />
 
-        <activity
-            android:name=".ui.LayoutInflaterSetFactoryActivity"
-            android:label="@string/title_activity_layout_inflater_set_factory" />
-
-        <activity
-            android:name=".ui.InputEditTextActivity"
-            android:label="@string/title_activity_input_edit_text" />
-
-        <activity
-            android:name=".ui.MaterialPreferencesActivity"
-            android:label="@string/title_activity_material_preferences" />
-
-        <activity
-            android:name=".ui.recyclerview.RecyclerViewActivity"
-            android:label="@string/title_activity_recycler_view" />
-        <!-- UI End -->
-
-
-        <!-- Sensor Start -->
-        <activity
-            android:name=".sensor.SensorMenuActivity"
-            android:label="@string/title_activity_sensor_menu" />
-
-        <activity
-            android:name=".sensor.AccelerateSensorActivity"
-            android:label="@string/title_activity_accelerate_sensor"
-            android:windowSoftInputMode="stateHidden" />
-        <!-- Sensor End -->
-
-
-        <!-- Function Start -->
-        <activity
-            android:name=".function.FunctionMenuActivity"
-            android:label="@string/title_activity_function_menu" />
-
-        <activity
-            android:name=".function.EqualizeActivity"
-            android:label="@string/title_activity_equalize" />
-
-        <activity android:name=".function.WebViewActivity"
-            android:label="@string/title_activity_webview"/>
-        <!-- Function End -->
-
-
-        <!-- Application Start -->
-        <activity
-            android:name=".application.ApplicationMenuActivity"
-            android:label="@string/title_activity_application_menu" />
-
-        <activity
-            android:name=".application.CarMotionDetectionActivity"
-            android:label="@string/title_activity_car_motion_detection"
-            android:windowSoftInputMode="stateHidden" />
-        <!-- Application End -->
-
-
+        <service android:name=".service.MyService" />
     </application>
+
 
 </manifest>

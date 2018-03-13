@@ -1,0 +1,38 @@
+
+{
+	"buildFiles" : [ "/Users/vendor/WorkSpace/JiaHuan/AndroidLearn/app/CMakeLists.txt" ],
+	"cleanCommands" : 
+	[
+		"/Users/vendor/Tools/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/vendor/WorkSpace/JiaHuan/AndroidLearn/app/.externalNativeBuild/cmake/release/arm64-v8a --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"native-lib-Release-arm64-v8a" : 
+		{
+			"abi" : "arm64-v8a",
+			"artifactName" : "native-lib",
+			"buildCommand" : "/Users/vendor/Tools/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/vendor/WorkSpace/JiaHuan/AndroidLearn/app/.externalNativeBuild/cmake/release/arm64-v8a --target native-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+				
+				{
+					"flags" : "  --target=aarch64-none-linux-android --gcc-toolchain=/Users/vendor/Tools/Android/sdk/ndk-bundle/toolchains/aarch64-linux-android-4.9/prebuilt/darwin-x86_64 --sysroot=/Users/vendor/Tools/Android/sdk/ndk-bundle/sysroot  -Dnative_lib_EXPORTS -isystem /Users/vendor/Tools/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include -isystem /Users/vendor/Tools/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/libs/arm64-v8a/include -isystem /Users/vendor/Tools/Android/sdk/ndk-bundle/sources/cxx-stl/gnu-libstdc++/4.9/include/backward  -isystem /Users/vendor/Tools/Android/sdk/ndk-bundle/sysroot/usr/include/aarch64-linux-android -D__ANDROID_API__=21 -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC    -c ",
+					"src" : "/Users/vendor/WorkSpace/JiaHuan/AndroidLearn/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "/Users/vendor/WorkSpace/JiaHuan/AndroidLearn/app/.externalNativeBuild/cmake/release/arm64-v8a"
+				}
+			],
+			"output" : "/Users/vendor/WorkSpace/JiaHuan/AndroidLearn/app/build/intermediates/cmake/release/obj/arm64-v8a/libnative-lib.so",
+			"toolchain" : "11146042464174554606"
+		}
+	},
+	"toolchains" : 
+	{
+		"11146042464174554606" : 
+		{
+			"cCompilerExecutable" : "/Users/vendor/Tools/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang",
+			"cppCompilerExecutable" : "/Users/vendor/Tools/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+		}
+	}
+}

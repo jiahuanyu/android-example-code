@@ -1,33 +1,9 @@
 <resources>
-    <string name="app_name">AndroidExampleCode</string>
+    <string name="app_name">AndroidLearn</string>
 
-    <!-- UI Start -->
-    <string name="title_activity_ui_menu">UI相关示例</string>
-    <string name="title_activity_drop_down_menu">下拉菜单</string>
-    <string name="title_activity_large_image_view">大图显示</string>
-    <string name="title_activity_sort_grid_view">可拖放排序GridView</string>
-    <string name="title_activity_empty_view">使用EmptyView</string>
-    <string name="title_activity_layout_inflater_set_factory">LayoutInflater.SetFactory</string>
-    <string name="title_activity_input_edit_text">InputEditText</string>
-    <string name="title_activity_material_preferences">MaterialPreferences</string>
-    <string name="title_activity_recycler_view">RecyclerView</string>
-    <!-- UI End -->
+    <string name="main_string_main_activity_navigation_drawer_open">侧栏打开</string>
+    <string name="main_string_main_activity_navigation_drawer_close">侧栏关闭</string>
 
-    <!-- Sensor Start -->
-    <string name="title_activity_sensor_menu">传感器相关示例</string>
-    <string name="title_activity_accelerate_sensor">加速度传感器</string>
-    <!-- Sensor End -->
-
-    <!-- Function Start -->
-    <string name="title_activity_function_menu">功能性相关示例</string>
-    <string name="title_activity_equalize">均衡器</string>
-    <string name="title_activity_webview">WebView</string>
-    <!-- Function End -->
-
-
-    <!-- Application Start -->
-    <string name="title_activity_application_menu">应用相关示例</string>
-    <string name="title_activity_car_motion_detection">XXX状态检测</string>
-    <string name="common_loading">正在加载</string>
-    <!-- Application End-->
+    <string name="title_activity_pull_refresh">下拉刷新</string>
+    <string name="title_activity_property_animation">属性动画</string>
 </resources>
