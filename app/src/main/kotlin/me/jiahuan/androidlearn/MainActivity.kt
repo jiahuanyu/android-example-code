@@ -15,6 +15,7 @@ import me.jiahuan.androidlearn.pullrefresh.PullRefreshActivity
 import me.jiahuan.androidlearn.react.ReactNativeActivity
 import me.jiahuan.androidlearn.service.ServiceActivity
 import me.jiahuan.androidlearn.skin.SkinChangeActivity
+import me.jiahuan.androidlearn.threadpool.ThreadPoolActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SkinChangeActivity::class.java))
         }
         activity_main_thread_pool_button.setOnClickListener {
-            startActivity(Intent(this, SkinChangeActivity::class.java))
+            startActivity(Intent(this, ThreadPoolActivity::class.java))
         }
     }
 

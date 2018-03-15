@@ -146,6 +146,6 @@ public class PullRefreshViewGroup extends ViewGroup {
     }
 
     public interface OnPullRefreshListener {
-        public void onRefresh();
+        void onRefresh();
     }
 }

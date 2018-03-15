@@ -44,6 +44,7 @@
         <activity android:name=".react.ReactNativeActivity" />
 
         <activity android:name=".skin.SkinChangeActivity" />
+        <activity android:name=".threadpool.ThreadPoolActivity" />
 
         <service android:name=".service.MyService" />
     </application>
