@@ -10,6 +10,6 @@ public class TestJ {
 
     }
 
-    public class TestJInner {
+    class TestJInner {
     }
 }

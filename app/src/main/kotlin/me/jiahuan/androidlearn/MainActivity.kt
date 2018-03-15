@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import kotlinx.android.synthetic.main.main_layout_main_activity.*
+import me.jiahuan.androidlearn.cache.LruCacheActivity
 import me.jiahuan.androidlearn.handler.HandlerActivity
 import me.jiahuan.androidlearn.propertyanimation.PropertyAnimationActivity
 import me.jiahuan.androidlearn.pullrefresh.PullRefreshActivity
@@ -57,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         }
         activity_main_thread_pool_button.setOnClickListener {
             startActivity(Intent(this, ThreadPoolActivity::class.java))
+        }
+        id_activity_main_lru_cache_button.setOnClickListener {
+            startActivity(Intent(this, LruCacheActivity::class.java))
         }
     }
 
