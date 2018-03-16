@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import java.lang.ref.WeakReference;
 import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -24,13 +25,29 @@ public class ThreadPoolActivity extends AppCompatActivity {
     private ProgressBar[] mProgressBarArray = new ProgressBar[TASK_COUNT];
     private ThreadPoolExecutor mThreadPoolExecutor;
 
-    private Handler mHandler = new Handler() {
+    private MyHandler mHandler = new MyHandler(this);
+
+    private static class MyHandler extends Handler {
+        private WeakReference<ThreadPoolActivity> mActivity;
+
+        public MyHandler(ThreadPoolActivity activity) {
+            mActivity = new WeakReference<ThreadPoolActivity>(activity);
+        }
+
+
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            mProgressBarArray[msg.what].setProgress((Integer) msg.obj);
+            ThreadPoolActivity activity = mActivity.get();
+            if (activity != null) {
+                activity.updateUI(msg.what, (Integer) msg.obj);
+            }
         }
-    };
+    }
+
+    public void updateUI(int index, int progress) {
+        mProgressBarArray[index].setProgress(progress);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,7 +73,7 @@ public class ThreadPoolActivity extends AppCompatActivity {
 
                 @Override
                 public void run() {
-                    while (count < 100) {
+                    while (!isQuite && count < 100) {
                         try {
                             Thread.sleep((index + 1) * 10);
                         } catch (InterruptedException e) {
@@ -69,10 +86,14 @@ public class ThreadPoolActivity extends AppCompatActivity {
         }
     }
 
+    boolean isQuite = false;
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        isQuite = true;
         mThreadPoolExecutor.shutdownNow();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }
