@@ -44,6 +44,14 @@
         <activity android:name=".skin.SkinChangeActivity" />
         <activity android:name=".threadpool.ThreadPoolActivity" />
         <activity android:name=".cache.LruCacheActivity" />
+        <activity android:name=".contentprovider.ContentProviderActivity" />
+
+
+        <provider
+            android:name=".contentprovider.MyContentProvider"
+            android:authorities="me.jiahuan.androidlearn"
+            android:exported="true"
+            android:process=":other" />
 
         <service android:name=".service.MyService" />
     </application>

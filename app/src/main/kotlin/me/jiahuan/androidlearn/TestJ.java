@@ -1,5 +1,7 @@
 package me.jiahuan.androidlearn;
 
+import android.widget.TextView;
+
 /**
  * Created by vendor on 2018/3/6.
  */

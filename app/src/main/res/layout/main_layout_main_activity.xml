@@ -95,6 +95,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LRUCACHE" />
+
+
+        <Button
+            android:id="@+id/id_activity_main_content_provider_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CONTENTPROVIDER" />
     </LinearLayout>
 
 

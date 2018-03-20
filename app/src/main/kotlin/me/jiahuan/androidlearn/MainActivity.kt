@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import kotlinx.android.synthetic.main.main_layout_main_activity.*
 import me.jiahuan.androidlearn.cache.LruCacheActivity
+import me.jiahuan.androidlearn.contentprovider.ContentProviderActivity
 import me.jiahuan.androidlearn.handler.HandlerActivity
 import me.jiahuan.androidlearn.propertyanimation.PropertyAnimationActivity
 import me.jiahuan.androidlearn.pullrefresh.PullRefreshActivity
@@ -61,6 +62,9 @@ class MainActivity : AppCompatActivity() {
         }
         id_activity_main_lru_cache_button.setOnClickListener {
             startActivity(Intent(this, LruCacheActivity::class.java))
+        }
+        id_activity_main_content_provider_button.setOnClickListener {
+            startActivity(Intent(this, ContentProviderActivity::class.java))
         }
     }
 
