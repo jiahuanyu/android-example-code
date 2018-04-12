@@ -1,0 +1,111 @@
+package me.jiahuan.androidlearn;
+
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+import com.chenenyu.router.Router;
+import com.chenenyu.router.annotation.Route;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
+    private Toolbar mToolbar;
+    private ActionBarDrawerToggle mActionBarDrawerToggle;
+    private NavigationView mNavigationView;
+
+    private NavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new NavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            if (item.getItemId() == R.id.id_menu_item_example) {
+                Router.build("module_example/example_activity").go(MainActivity.this);
+            }
+            return true;
+        }
+    };
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate, savedInstanceState = " + savedInstanceState);
+        setContentView(R.layout.layout_main_activity);
+        initialize();
+    }
+
+    private void initialize() {
+        mNavigationView = findViewById(R.id.id_layout_main_activity_navigation_view);
+        mToolbar = findViewById(R.id.id_layout_main_activity_tool_bar);
+        setSupportActionBar(mToolbar);
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, (DrawerLayout) findViewById(R.id.id_layout_main_activity_drawer_layout), mToolbar, R.string.main_string_main_activity_navigation_drawer_open, R.string.main_string_main_activity_navigation_drawer_close);
+        mActionBarDrawerToggle.syncState();
+
+        mNavigationView.setNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        setHomeFragment();
+    }
+
+    private void setHomeFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Fragment fragment = (Fragment) Router.build("module_home/home_fragment").getFragment(this);
+        fragmentTransaction.add(R.id.id_layout_main_activity_fragment_container_view_group, fragment, "HOME_FRAGMENT");
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.d(TAG, "onConfigurationChanged");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState");
+    }
+}
+

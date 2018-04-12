@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">AndroidLearn</string>
+    <string name="app_name">Only</string>
 
     <string name="main_string_main_activity_navigation_drawer_open">侧栏打开</string>
     <string name="main_string_main_activity_navigation_drawer_close">侧栏关闭</string>
 
     <string name="title_activity_pull_refresh">下拉刷新</string>
     <string name="title_activity_property_animation">属性动画</string>
+
+
+    <string name="string_menu_item_navigation_example_title">Android 示例</string>
+
 </resources>

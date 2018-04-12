@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion common.compileSdkVersion
     defaultConfig {
         applicationId "me.jiahuan.androidlearn"
-        minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0.0"
+        minSdkVersion common.minSdkVersion
+        targetSdkVersion common.targetSdkVersion
+        versionCode  common.versionCode
+        versionName  common.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -18,6 +18,11 @@ android {
         }
         ndk {
             abiFilters "armeabi-v7a", "x86"
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["moduleName": project.name]
+            }
         }
     }
     buildTypes {
@@ -28,7 +33,7 @@ android {
     }
     sourceSets {
         main {
-            java.srcDirs( 'src/main/kotlin')
+           // java.srcDirs( 'src/main/kotlin')
         }
     }
     externalNativeBuild {
@@ -39,15 +44,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
-    implementation 'com.android.support:design:26.0.0-beta1'
+    implementation 'com.android.support:appcompat-v7:' + common.supportVersion
+    implementation 'com.android.support:design:' + common.supportVersion
+    implementation 'com.chenenyu.router:router:1.4.0'
+    annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
     implementation 'com.facebook.react:react-native:+'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:0.5'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation project(':module_home')
+    implementation project(':module_example')
 }
 repositories {
     mavenCentral()
