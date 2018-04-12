@@ -84,6 +84,12 @@ public class ThreadPoolActivity extends AppCompatActivity {
                 }
             });
         }
+//        mThreadPoolExecutor.submit(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        }).cancel();
     }
 
     boolean isQuite = false;
