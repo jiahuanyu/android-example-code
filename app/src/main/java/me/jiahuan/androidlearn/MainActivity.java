@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import me.jiahuan.androidlearn.base.BaseActivity;
 public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
+    private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private NavigationView mNavigationView;
 
@@ -34,6 +36,7 @@ public class MainActivity extends BaseActivity {
             if (item.getItemId() == R.id.id_menu_item_example) {
                 Router.build("module_example/example_activity").go(MainActivity.this);
             }
+            mDrawerLayout.closeDrawer(Gravity.LEFT, false);
             return true;
         }
     };
@@ -47,8 +50,9 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initialize() {
+        mDrawerLayout = findViewById(R.id.id_layout_main_activity_drawer_layout);
         mNavigationView = findViewById(R.id.id_layout_main_activity_navigation_view);
-        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, (DrawerLayout) findViewById(R.id.id_layout_main_activity_drawer_layout), getToolbar(), R.string.main_string_main_activity_navigation_drawer_open, R.string.main_string_main_activity_navigation_drawer_close);
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, getToolbar(), R.string.main_string_main_activity_navigation_drawer_open, R.string.main_string_main_activity_navigation_drawer_close);
         mActionBarDrawerToggle.syncState();
         mNavigationView.setNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         setHomeFragment();
