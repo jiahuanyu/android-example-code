@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion common.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion common.minSdkVersion
+        targetSdkVersion common.targetSdkVersion
+        versionCode  common.versionCode
+        versionName  common.versionName
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = ["moduleName": project.name]
+//            }
+//        }
+        resourcePrefix 'lib_base_'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:' + common.supportVersion
+    implementation 'com.android.support:design:' + common.supportVersion
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//    implementation 'com.chenenyu.router:router:1.4.0'
+//    annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
+}
+repositories {
+    mavenCentral()
+}

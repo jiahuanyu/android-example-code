@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/lib_base_layout_tool_bar" />
+
+
+    <TextView
+        android:id="@+id/activity_main_pull_refresh_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="下拉刷新"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/activity_main_property_animation_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="属性动画"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/activity_main_bind_service_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:text="服务绑定"
+        android:textSize="16sp" />
+
+
+    <Button
+        android:id="@+id/activity_main_open_ta_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开透明界面" />
+
+    <Button
+        android:id="@+id/activity_main_open_dialog_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="打开Dialog" />
+
+
+    <Button
+        android:id="@+id/activity_main_handler_activity_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HandlerActivity" />
+
+
+    <Button
+        android:id="@+id/activity_main_react_native_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ReactNative" />
+
+    <Button
+        android:id="@+id/activity_main_change_skin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="换肤" />
+
+    <Button
+        android:id="@+id/id_example_activity_thread_pool_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onTreadPoolButtonClicked"
+        android:text="线程池" />
+
+
+    <Button
+        android:id="@+id/id_activity_main_lru_cache_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LRUCACHE" />
+
+
+    <Button
+        android:id="@+id/id_activity_main_content_provider_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTENTPROVIDER" />
+
+</LinearLayout>

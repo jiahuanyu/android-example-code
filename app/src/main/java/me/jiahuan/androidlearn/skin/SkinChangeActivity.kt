@@ -27,9 +27,9 @@ class SkinChangeActivity : AppCompatActivity() {
         Log.d(TAG,"skin = " + skin)
 
         if (skin == 0) {
-            setTheme(R.style.AppTheme)
+            setTheme(R.style.lib_base_AppTheme)
         } else {
-            setTheme(R.style.AppTheme_Dark)
+            setTheme(R.style.lib_base_AppTheme_Dark)
         }
 
         super.onCreate(savedInstanceState)

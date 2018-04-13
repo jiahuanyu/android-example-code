@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="测试文字"
-        android:textColor="?attr/AppTheme.TextColor"
-        android:textSize="?attr/AppTheme.TextSize" />
+        android:textColor="?attr/lib_base_AppTheme.TextColor"
+        android:textSize="?attr/lib_base_AppTheme.TextSize" />
 
 </LinearLayout>

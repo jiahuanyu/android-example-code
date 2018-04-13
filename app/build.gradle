@@ -50,8 +50,9 @@ dependencies {
     annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
     implementation 'com.facebook.react:react-native:+'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation project(':module_home')
-    implementation project(':module_example')
+    api project(':module_home')
+    api project(':module_example')
+    api project(':lib_base')
 }
 repositories {
     mavenCentral()

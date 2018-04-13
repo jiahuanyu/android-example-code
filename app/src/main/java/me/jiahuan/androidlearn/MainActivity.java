@@ -20,10 +20,11 @@ import android.widget.Toast;
 import com.chenenyu.router.Router;
 import com.chenenyu.router.annotation.Route;
 
-public class MainActivity extends AppCompatActivity {
+import me.jiahuan.androidlearn.base.BaseActivity;
+
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
-    private Toolbar mToolbar;
     private ActionBarDrawerToggle mActionBarDrawerToggle;
     private NavigationView mNavigationView;
 
@@ -41,19 +42,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate, savedInstanceState = " + savedInstanceState);
-        setContentView(R.layout.layout_main_activity);
+        initializeActivityWithToolbar(R.layout.layout_main_activity, false);
         initialize();
     }
 
     private void initialize() {
         mNavigationView = findViewById(R.id.id_layout_main_activity_navigation_view);
-        mToolbar = findViewById(R.id.id_layout_main_activity_tool_bar);
-        setSupportActionBar(mToolbar);
-        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, (DrawerLayout) findViewById(R.id.id_layout_main_activity_drawer_layout), mToolbar, R.string.main_string_main_activity_navigation_drawer_open, R.string.main_string_main_activity_navigation_drawer_close);
+        mActionBarDrawerToggle = new ActionBarDrawerToggle(this, (DrawerLayout) findViewById(R.id.id_layout_main_activity_drawer_layout), getToolbar(), R.string.main_string_main_activity_navigation_drawer_open, R.string.main_string_main_activity_navigation_drawer_close);
         mActionBarDrawerToggle.syncState();
-
         mNavigationView.setNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         setHomeFragment();
     }
 

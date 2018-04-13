@@ -1,1 +1,1 @@
-include ':app', ':module_example', ':module_base', ':module_home'
+include ':app', ':module_example', ':lib_base', ':module_home'

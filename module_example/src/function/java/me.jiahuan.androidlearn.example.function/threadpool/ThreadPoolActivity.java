@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -17,11 +16,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.example.R;
 
 
-@Route(value = "module_example/function/threadpool")
-public class ThreadPoolActivity extends AppCompatActivity {
+@Route(value = "module_example/function/thread_pool_activity")
+public class ThreadPoolActivity extends BaseActivity {
 
     private static final int TASK_COUNT = 12;
 
@@ -55,14 +55,14 @@ public class ThreadPoolActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_thread_pool_activity);
+        initializeActivityWithToolbar(R.layout.module_example_layout_thread_pool_activity, true);
         initialize();
     }
 
     private void initialize() {
         ViewGroup wrapperViewGroup = findViewById(R.id.id_layout_thread_pool_activity_wrapper_view_group);
         for (int i = 0; i < TASK_COUNT; i++) {
-            ProgressBar progressBar = (ProgressBar) LayoutInflater.from(this).inflate(R.layout.layout_thread_pool_activity_progress_bar, null);
+            ProgressBar progressBar = (ProgressBar) LayoutInflater.from(this).inflate(R.layout.module_example_layout_thread_pool_activity_progress_bar, null);
             wrapperViewGroup.addView(progressBar);
             mProgressBarArray[i] = progressBar;
         }
@@ -87,12 +87,7 @@ public class ThreadPoolActivity extends AppCompatActivity {
                 }
             });
         }
-//        mThreadPoolExecutor.submit(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        }).cancel();
+
     }
 
     boolean isQuite = false;

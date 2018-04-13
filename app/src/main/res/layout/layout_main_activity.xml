@@ -10,15 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/id_layout_main_activity_tool_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:theme="@style/AppTheme.Toolbar"
-            app:subtitleTextColor="@android:color/white"
-            app:titleTextColor="@android:color/white" />
-
+        <include layout="@layout/lib_base_layout_tool_bar" />
 
         <FrameLayout
             android:id="@+id/id_layout_main_activity_fragment_container_view_group"

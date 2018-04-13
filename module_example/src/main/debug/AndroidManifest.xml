@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.jiahuan.androidlearn.example">
+
+    <application>
+
+        <activity android:name=".ExampleActivity" />
+
+        <activity
+            android:name=".function.threadpool.ThreadPoolActivity"
+            android:label="@string/module_example_function_title_thread_pool" />
+    </application>
+</manifest>
