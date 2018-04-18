@@ -16,7 +16,6 @@ public class ExampleActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //  setContentView(R.layout.module_example_layout_example_activity);
         initializeActivityWithToolbar(R.layout.module_example_layout_example_activity, true);
     }
 
@@ -25,4 +24,17 @@ public class ExampleActivity extends BaseActivity {
         Router.build("module_example/function/thread_pool_activity").go(this);
     }
 
+
+    public void onEventDispatchButtonClicked(View v) {
+        Router.build("module_example/function/ecent_dispatch_activity").go(this);
+    }
+
+
+    public void onPullRefreshButtonClicked(View v) {
+        Router.build("module_example/function/pull_refresh_activity").go(this);
+    }
+
+    public void onAIDLButtonClicked(View v) {
+        Router.build("module_example/function/aidl_activity").go(this);
+    }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_event_dispatch_activity_view_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <me.jiahuan.androidlearn.example.function.threadpool.EventDispatchViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:tag="ViewGroup1">
+
+        <me.jiahuan.androidlearn.example.function.threadpool.EventDispatchView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_light"
+            android:tag="View1" />
+
+
+    </me.jiahuan.androidlearn.example.function.threadpool.EventDispatchViewGroup>
+
+</LinearLayout>

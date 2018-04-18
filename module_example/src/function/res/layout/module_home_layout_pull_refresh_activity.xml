@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <me.jiahuan.androidlearn.pullrefresh.PullRefreshViewGroup
+    <me.jiahuan.androidlearn.example.function.pullrefresh.PullRefreshViewGroup
         android:id="@+id/activity_pull_refresh_view_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,6 +24,6 @@
             android:layout_height="match_parent" />
 
 
-    </me.jiahuan.androidlearn.pullrefresh.PullRefreshViewGroup>
+    </me.jiahuan.androidlearn.example.function.pullrefresh.PullRefreshViewGroup>
 
 </LinearLayout>

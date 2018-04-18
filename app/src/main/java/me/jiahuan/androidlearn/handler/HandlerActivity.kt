@@ -28,7 +28,6 @@ class HandlerActivity : AppCompatActivity() {
             }
         }
         mHandler!!.sendEmptyMessageDelayed(10000, 2000)
-        myLopperThread
     }
 
     internal inner class MyLopperThread(x: String) : Thread() {

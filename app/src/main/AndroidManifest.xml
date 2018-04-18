@@ -28,8 +28,6 @@
         </activity>
 
 
-        <activity android:name=".pullrefresh.PullRefreshActivity" />
-
         <activity android:name=".propertyanimation.PropertyAnimationActivity" />
 
         <activity android:name=".service.ServiceActivity" />

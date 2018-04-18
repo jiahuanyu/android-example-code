@@ -8,5 +8,23 @@
         <activity
             android:name=".function.threadpool.ThreadPoolActivity"
             android:label="@string/module_example_function_title_thread_pool" />
+
+        <activity android:name=".function.pullrefresh.PullRefreshActivity" />
+
+        <activity android:name=".function.threadpool.EventDispatchActivity" />
+
+
+        <activity android:name=".function.aidl.AidlActivity" />
+
+        <service
+            android:name=".function.aidl.RemoteOrLocalService"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="me.jiahuan.androidlearn.example.function.aidl.remote" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
     </application>
 </manifest>

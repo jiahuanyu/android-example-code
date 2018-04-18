@@ -1,4 +1,4 @@
-package me.jiahuan.androidlearn.pullrefresh;
+package me.jiahuan.androidlearn.example.function.pullrefresh;
 
 
 import android.os.Bundle;
@@ -12,9 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import me.jiahuan.androidlearn.R;
+import com.chenenyu.router.annotation.Route;
 
-public class PullRefreshActivity extends AppCompatActivity implements AdapterView.OnItemLongClickListener, PullRefreshViewGroup.OnPullRefreshListener {
+import me.jiahuan.androidlearn.base.BaseActivity;
+import me.jiahuan.androidlearn.example.R;
+
+
+@Route(value = "module_example/function/pull_refresh_activity")
+public class PullRefreshActivity extends BaseActivity implements AdapterView.OnItemLongClickListener, PullRefreshViewGroup.OnPullRefreshListener {
 
 
     private ListView mListView;
@@ -23,7 +28,7 @@ public class PullRefreshActivity extends AppCompatActivity implements AdapterVie
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_pull_refresh_activity);
+        initializeActivity(R.layout.module_home_layout_pull_refresh_activity);
         initialize();
     }
 

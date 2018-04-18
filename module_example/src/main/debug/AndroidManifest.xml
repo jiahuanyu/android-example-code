@@ -8,5 +8,11 @@
         <activity
             android:name=".function.threadpool.ThreadPoolActivity"
             android:label="@string/module_example_function_title_thread_pool" />
+
+        <activity android:name=".function.pullrefresh.PullRefreshActivity" />
+
+        <activity android:name=".function.threadpool.EventDispatchActivity" />
+
+
     </application>
 </manifest>

@@ -1,4 +1,4 @@
-package me.jiahuan.androidlearn.pullrefresh;
+package me.jiahuan.androidlearn.example.function.pullrefresh;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -59,9 +59,10 @@ public class PullRefreshViewGroup extends ViewGroup {
 
     private float mMoveInterceptDownY = 0;
 
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-        Log.d(TAG, "onInterceptTouchEvent");
+        Log.d(TAG, "onInterceptTouchEvent = " + event.getAction());
         boolean retValue = false;
         switch (event.getAction() & event.getActionMasked()) {
             case MotionEvent.ACTION_DOWN:
@@ -84,8 +85,14 @@ public class PullRefreshViewGroup extends ViewGroup {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        Log.d(TAG, "dispatchTouchEvent = " + ev.getAction());
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
-        Log.d(TAG, "onTouchEvent");
+        Log.d(TAG, "onTouchEvent = " + event.getAction());
         switch (event.getAction() & event.getActionMasked()) {
 //            case MotionEvent.ACTION_DOWN:
 //                mMoveLastY = event.getY();
