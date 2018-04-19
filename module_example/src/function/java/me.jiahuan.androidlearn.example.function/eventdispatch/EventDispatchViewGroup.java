@@ -1,10 +1,9 @@
-package me.jiahuan.androidlearn.example.function.threadpool;
+package me.jiahuan.androidlearn.example.function.eventdispatch;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 

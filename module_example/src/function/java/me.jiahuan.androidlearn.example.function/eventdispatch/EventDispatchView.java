@@ -1,4 +1,4 @@
-package me.jiahuan.androidlearn.example.function.threadpool;
+package me.jiahuan.androidlearn.example.function.eventdispatch;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

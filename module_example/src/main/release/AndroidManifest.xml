@@ -11,10 +11,12 @@
 
         <activity android:name=".function.pullrefresh.PullRefreshActivity" />
 
-        <activity android:name=".function.threadpool.EventDispatchActivity" />
+        <activity android:name=".function.eventdispatch.EventDispatchActivity" />
 
 
         <activity android:name=".function.aidl.AidlActivity" />
+
+        <activity android:name=".ui.recyclerview.RecyclerViewActivity" />
 
         <service
             android:name=".function.aidl.RemoteOrLocalService"

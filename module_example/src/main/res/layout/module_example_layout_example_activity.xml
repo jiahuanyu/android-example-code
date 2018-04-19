@@ -8,8 +8,8 @@
     <include layout="@layout/lib_base_layout_tool_bar" />
 
 
+
     <Button
-        android:id="@+id/id_example_activity_pull_refresh_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onPullRefreshButtonClicked"
@@ -17,24 +17,28 @@
         android:textSize="16sp" />
 
     <Button
-        android:id="@+id/id_example_activity_thread_pool_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onTreadPoolButtonClicked"
         android:text="线程池" />
 
     <Button
-        android:id="@+id/id_example_activity_event_dispatch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onEventDispatchButtonClicked"
         android:text="事件传递分发" />
 
     <Button
-        android:id="@+id/id_example_activity_aidl_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onAIDLButtonClicked"
         android:text="AIDL" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onRecyclerViewButtonClicked"
+        android:text="RecyclerView" />
 
 </LinearLayout>

@@ -29,7 +29,8 @@ android {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
             }
             java.srcDirs('src/ui/java', 'src/function/java')
-            res.srcDirs('src/function/res')
+            res.srcDirs('src/function/res', 'src/ui/res')
+            aidl.srcDirs('src/function/aidl');
         }
     }
 }

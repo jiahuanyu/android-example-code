@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/lib_base_colorAccent</item>
         <item name="lib_base_AppTheme.TextColor">#000000</item>
         <item name="lib_base_AppTheme.TextSize">20sp</item>
+        <item name="android:listDivider">@drawable/lib_base_drawable_item_decoration</item>
     </style>
 
 

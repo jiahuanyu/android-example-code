@@ -6,20 +6,20 @@
     android:orientation="vertical">
 
 
-    <me.jiahuan.androidlearn.example.function.threadpool.EventDispatchViewGroup
+    <me.jiahuan.androidlearn.example.function.eventdispatch.EventDispatchViewGroup
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
         android:tag="ViewGroup1">
 
-        <me.jiahuan.androidlearn.example.function.threadpool.EventDispatchView
+        <me.jiahuan.androidlearn.example.function.eventdispatch.EventDispatchView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/holo_red_light"
             android:tag="View1" />
 
 
-    </me.jiahuan.androidlearn.example.function.threadpool.EventDispatchViewGroup>
+    </me.jiahuan.androidlearn.example.function.eventdispatch.EventDispatchViewGroup>
 
 </LinearLayout>
