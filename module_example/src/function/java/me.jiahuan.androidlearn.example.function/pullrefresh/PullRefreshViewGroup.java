@@ -123,7 +123,7 @@ public class PullRefreshViewGroup extends ViewGroup {
                 requestLayout();
                 break;
         }
-        return true;
+        return super.onTouchEvent(event);
     }
 
     @Override

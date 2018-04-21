@@ -11,14 +11,7 @@ android {
         versionCode  common.versionCode
         versionName  common.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                cppFlags ""
-            }
-        }
-        ndk {
-            abiFilters "armeabi-v7a", "x86"
-        }
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["moduleName": project.name]
@@ -36,11 +29,7 @@ android {
            // java.srcDirs( 'src/main/kotlin')
         }
     }
-    externalNativeBuild {
-        cmake {
-            path "CMakeLists.txt"
-        }
-    }
+
 }
 
 dependencies {

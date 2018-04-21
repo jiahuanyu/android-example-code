@@ -8,15 +8,14 @@
         <activity
             android:name=".function.threadpool.ThreadPoolActivity"
             android:label="@string/module_example_function_title_thread_pool" />
-
         <activity android:name=".function.pullrefresh.PullRefreshActivity" />
-
         <activity android:name=".function.eventdispatch.EventDispatchActivity" />
-
-
         <activity android:name=".function.aidl.AidlActivity" />
+        <activity android:name=".function.jni.JNIActivity" />
 
         <activity android:name=".ui.recyclerview.RecyclerViewActivity" />
+
+        <activity android:name=".ui.scroller.ScrollerActivity" />
 
         <service
             android:name=".function.aidl.RemoteOrLocalService"

@@ -41,4 +41,17 @@
         android:onClick="onRecyclerViewButtonClicked"
         android:text="RecyclerView" />
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onJNIButtonClicked"
+        android:text="JNI" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onScrollButtonClicked"
+        android:text="Scroller" />
+
 </LinearLayout>

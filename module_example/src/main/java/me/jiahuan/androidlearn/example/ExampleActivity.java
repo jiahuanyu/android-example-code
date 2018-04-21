@@ -23,7 +23,9 @@ import java.util.List;
 
 import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.base.DividerItemDecoration;
+import me.jiahuan.androidlearn.example.function.jni.JNIActivity;
 import me.jiahuan.androidlearn.example.ui.recyclerview.RecyclerViewActivity;
+import me.jiahuan.androidlearn.example.ui.scroller.ScrollerActivity;
 
 @Route(value = "module_example/example_activity")
 public class ExampleActivity extends BaseActivity {
@@ -54,5 +56,13 @@ public class ExampleActivity extends BaseActivity {
 
     public void onRecyclerViewButtonClicked(View v) {
         startActivity(new Intent(this, RecyclerViewActivity.class));
+    }
+
+    public void onJNIButtonClicked(View v) {
+        startActivity(new Intent(this, JNIActivity.class));
+    }
+
+    public void onScrollButtonClicked(View v) {
+        startActivity(new Intent(this, ScrollerActivity.class));
     }
 }

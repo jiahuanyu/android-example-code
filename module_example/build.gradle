@@ -19,6 +19,15 @@ android {
             }
         }
         resourcePrefix "module_example_"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+        ndk {
+          //  abiFilters "armeabi-v7a", "x86"
+        }
     }
 
     sourceSets {
@@ -28,9 +37,16 @@ android {
             } else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
             }
-            java.srcDirs('src/ui/java', 'src/function/java')
+            java.srcDirs( 'src/function/java', 'src/ui/java')
             res.srcDirs('src/function/res', 'src/ui/res')
-            aidl.srcDirs('src/function/aidl');
+            aidl.srcDirs('src/function/aidl')
+        }
+    }
+
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
         }
     }
 }
