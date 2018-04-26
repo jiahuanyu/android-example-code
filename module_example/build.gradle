@@ -49,14 +49,18 @@ android {
             path "CMakeLists.txt"
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
+
 
 dependencies {
     implementation 'com.android.support:appcompat-v7:' + common.supportVersion
     implementation 'com.android.support:design:' + common.supportVersion
     implementation 'com.chenenyu.router:router:1.4.0'
     annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
-//    implementation 'com.jakewharton:butterknife:8.8.1'
-//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     api project(':lib_base')
+//    api project(':clint-aar')
 }

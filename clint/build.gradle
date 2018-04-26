@@ -1,0 +1,18 @@
+apply plugin: 'java-library'
+
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+
+jar {
+    manifest {
+        attributes("Lint-Registry-v2": "me.jiahuan.androidlearn.clint.CIssueRegistry")
+    }
+}
+
+dependencies {
+    compileOnly "com.android.tools.lint:lint-api:26.1.2"
+    compileOnly "com.android.tools.lint:lint-checks:26.1.2"
+}
+

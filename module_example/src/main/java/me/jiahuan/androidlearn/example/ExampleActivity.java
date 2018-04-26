@@ -10,6 +10,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,5 +65,6 @@ public class ExampleActivity extends BaseActivity {
 
     public void onScrollButtonClicked(View v) {
         startActivity(new Intent(this, ScrollerActivity.class));
+        Log.d("x","x");
     }
 }

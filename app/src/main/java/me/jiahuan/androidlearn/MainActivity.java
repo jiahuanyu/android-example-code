@@ -2,6 +2,9 @@ package me.jiahuan.androidlearn;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -56,6 +59,20 @@ public class MainActivity extends BaseActivity {
         mActionBarDrawerToggle.syncState();
         mNavigationView.setNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         setHomeFragment();
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+//                Looper.prepare();
+//                Handler handler = new Handler(Looper.getMainLooper()){
+//                    @Override
+//                    public void handleMessage(Message msg) {
+//                        super.handleMessage(msg);
+//
+//                    }
+//                };
+            }
+        }.start();
     }
 
     private void setHomeFragment() {

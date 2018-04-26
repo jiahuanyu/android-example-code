@@ -33,6 +33,11 @@ android {
             // res.srcDirs('src/function/res')
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
