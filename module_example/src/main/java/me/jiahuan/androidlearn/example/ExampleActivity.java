@@ -1,5 +1,6 @@
 package me.jiahuan.androidlearn.example;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,9 +23,11 @@ import com.chenenyu.router.annotation.Route;
 import java.util.ArrayList;
 import java.util.List;
 
+import kotlin.jvm.JvmStatic;
 import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.base.DividerItemDecoration;
 import me.jiahuan.androidlearn.example.function.jni.JNIActivity;
+import me.jiahuan.androidlearn.example.function.threadpool.ThreadPoolActivity;
 import me.jiahuan.androidlearn.example.ui.recyclerview.RecyclerViewActivity;
 import me.jiahuan.androidlearn.example.ui.scroller.ScrollerActivity;
 
@@ -38,7 +41,8 @@ public class ExampleActivity extends BaseActivity {
     }
 
     public void onTreadPoolButtonClicked(View v) {
-        Router.build("module_example/function/thread_pool_activity").go(this);
+//        Router.build("module_example/function/thread_pool_activity").go(this);
+        startActivity(new Intent(this, ThreadPoolActivity.class));
     }
 
 
@@ -65,6 +69,5 @@ public class ExampleActivity extends BaseActivity {
 
     public void onScrollButtonClicked(View v) {
         startActivity(new Intent(this, ScrollerActivity.class));
-        Log.d("x","x");
     }
 }

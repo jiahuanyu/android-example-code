@@ -3,6 +3,8 @@ if (isBuildModule.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
+project.apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion common.compileSdkVersion
@@ -62,5 +64,5 @@ dependencies {
     implementation 'com.chenenyu.router:router:1.4.0'
     annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
     api project(':lib_base')
-//    api project(':clint-aar')
+    api project(':clint-aar')
 }

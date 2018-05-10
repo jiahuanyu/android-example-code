@@ -1,5 +1,6 @@
 package me.jiahuan.androidlearn;
 
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
@@ -59,20 +60,6 @@ public class MainActivity extends BaseActivity {
         mActionBarDrawerToggle.syncState();
         mNavigationView.setNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         setHomeFragment();
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-//                Looper.prepare();
-//                Handler handler = new Handler(Looper.getMainLooper()){
-//                    @Override
-//                    public void handleMessage(Message msg) {
-//                        super.handleMessage(msg);
-//
-//                    }
-//                };
-            }
-        }.start();
     }
 
     private void setHomeFragment() {
