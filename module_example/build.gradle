@@ -62,6 +62,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:' + common.supportVersion
     implementation 'com.android.support:design:' + common.supportVersion
     implementation 'com.chenenyu.router:router:1.4.0'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
     annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
     api project(':lib_base')
     api project(':clint-aar')

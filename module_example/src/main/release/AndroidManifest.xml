@@ -17,6 +17,8 @@
 
         <activity android:name=".ui.scroller.ScrollerActivity" />
 
+        <activity android:name=".ui.chart.ChartActivity" />
+
         <service
             android:name=".function.aidl.RemoteOrLocalService"
             android:exported="true"

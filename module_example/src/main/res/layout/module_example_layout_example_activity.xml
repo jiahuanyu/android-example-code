@@ -8,7 +8,6 @@
     <include layout="@layout/lib_base_layout_tool_bar" />
 
 
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,5 +52,12 @@
         android:layout_height="wrap_content"
         android:onClick="onScrollButtonClicked"
         android:text="Scroller" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onChartButtonClicked"
+        android:text="图表" />
 
 </LinearLayout>
