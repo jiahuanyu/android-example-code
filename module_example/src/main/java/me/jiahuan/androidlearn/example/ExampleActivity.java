@@ -26,6 +26,7 @@ import java.util.List;
 import kotlin.jvm.JvmStatic;
 import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.base.DividerItemDecoration;
+import me.jiahuan.androidlearn.example.function.downloadmanager.DownloadManagerActivity;
 import me.jiahuan.androidlearn.example.function.jni.JNIActivity;
 import me.jiahuan.androidlearn.example.function.threadpool.ThreadPoolActivity;
 import me.jiahuan.androidlearn.example.ui.chart.ChartActivity;
@@ -74,5 +75,10 @@ public class ExampleActivity extends BaseActivity {
 
     public void onChartButtonClicked(View v) {
         startActivity(new Intent(this, ChartActivity.class));
+    }
+
+
+    public void onDownloadManagerButtonClicked(View v) {
+        startActivity(new Intent(this, DownloadManagerActivity.class));
     }
 }

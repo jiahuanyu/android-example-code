@@ -60,4 +60,11 @@
         android:onClick="onChartButtonClicked"
         android:text="图表" />
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onDownloadManagerButtonClicked"
+        android:text="DownloadManager" />
+
 </LinearLayout>

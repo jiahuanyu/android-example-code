@@ -1,6 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.jiahuan.androidlearn.example">
 
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
 
         <activity android:name=".ExampleActivity" />
@@ -18,6 +23,8 @@
         <activity android:name=".ui.scroller.ScrollerActivity" />
 
         <activity android:name=".ui.chart.ChartActivity" />
+
+        <activity android:name=".function.downloadmanager.DownloadManagerActivity" />
 
         <service
             android:name=".function.aidl.RemoteOrLocalService"
