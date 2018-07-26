@@ -1,41 +1,30 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 
 android {
-    compileSdkVersion common.compileSdkVersion
+    compileSdkVersion config.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion common.minSdkVersion
-        targetSdkVersion common.targetSdkVersion
-        versionCode  common.versionCode
-        versionName  common.versionName
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode  config.versionCode
+        versionName  config.versionName
 
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = ["moduleName": project.name]
-//            }
-//        }
         resourcePrefix 'lib_base_'
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:' + common.supportVersion
-    implementation 'com.android.support:design:' + common.supportVersion
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-//    implementation 'com.chenenyu.router:router:1.4.0'
-//    annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
+    api 'com.android.support:appcompat-v7:' + config.supportVersion
+    api 'com.android.support:design:' + config.supportVersion
+
+    api 'com.jakewharton:butterknife:8.8.1'
+
+    api 'com.chenenyu.router:router:1.4.0'
+
+    api 'com.orhanobut:logger:2.2.0'
 }
+
 repositories {
     mavenCentral()
 }

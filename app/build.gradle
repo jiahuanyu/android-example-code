@@ -1,15 +1,13 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion common.compileSdkVersion
+    compileSdkVersion config.compileSdkVersion
     defaultConfig {
         applicationId "me.jiahuan.androidlearn"
-        minSdkVersion common.minSdkVersion
-        targetSdkVersion common.targetSdkVersion
-        versionCode  common.versionCode
-        versionName  common.versionName
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode  config.versionCode
+        versionName  config.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
@@ -26,22 +24,17 @@ android {
     }
     sourceSets {
         main {
-           // java.srcDirs( 'src/main/kotlin')
         }
     }
 
 }
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:' + common.supportVersion
-    implementation 'com.android.support:design:' + common.supportVersion
-    implementation 'com.chenenyu.router:router:1.4.0'
     annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
-    implementation 'com.facebook.react:react-native:+'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    api project(':module_home')
-    api project(':module_example')
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
     api project(':lib_base')
+    api project(':module_function')
 }
 repositories {
     mavenCentral()

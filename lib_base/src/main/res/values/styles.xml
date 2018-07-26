@@ -6,28 +6,7 @@
         <item name="colorPrimary">@color/lib_base_colorPrimary</item>
         <item name="colorPrimaryDark">@color/lib_base_colorPrimaryDark</item>
         <item name="colorAccent">@color/lib_base_colorAccent</item>
-        <item name="lib_base_AppTheme.TextColor">#000000</item>
-        <item name="lib_base_AppTheme.TextSize">20sp</item>
         <item name="android:listDivider">@drawable/lib_base_drawable_item_decoration</item>
     </style>
 
-
-    <style name="lib_base_AppTheme.Dark" parent="Theme.AppCompat.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@android:color/black</item>
-        <item name="colorPrimaryDark">@android:color/black</item>
-        <item name="colorAccent">@android:color/black</item>
-        <item name="lib_base_AppTheme.TextColor">#ffffff</item>
-        <item name="lib_base_AppTheme.TextSize">30sp</item>
-    </style>
-
-
-    <style name="lib_base_AppTheme.Toolbar">
-        <item name="colorControlNormal">#FFFFFF</item>
-    </style>
-
-    <style name="lib_base_AppTheme.Translucent" parent="lib_base_AppTheme">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
 </resources>

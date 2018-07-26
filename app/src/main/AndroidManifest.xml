@@ -1,9 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.jiahuan.androidlearn">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -13,12 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/lib_base_AppTheme">
 
-
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation|screenSize">
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,34 +21,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-        <activity android:name=".propertyanimation.PropertyAnimationActivity" />
-
-        <activity android:name=".service.ServiceActivity" />
-
-        <activity
-            android:name=".TransparentActivity"
-            android:theme="@style/lib_base_AppTheme.Translucent" />
-
-        <activity android:name=".handler.HandlerActivity" />
-
-        <activity android:name=".react.ReactNativeActivity" />
-
-        <activity android:name=".skin.SkinChangeActivity" />
-
-        <activity android:name=".cache.LruCacheActivity" />
-        <activity android:name=".contentprovider.ContentProviderActivity" />
-
-
-        <provider
-            android:name=".contentprovider.MyContentProvider"
-            android:authorities="me.jiahuan.androidlearn"
-            android:exported="true"
-            android:process=":other" />
-
-        <service android:name=".service.MyService" />
     </application>
-
 
 </manifest>

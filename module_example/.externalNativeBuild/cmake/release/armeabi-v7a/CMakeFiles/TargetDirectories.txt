@@ -1,3 +1,0 @@
-/Users/vendor/WorkSpace/JiaHuan/android-example-code/module_example/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/edit_cache.dir
-/Users/vendor/WorkSpace/JiaHuan/android-example-code/module_example/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-/Users/vendor/WorkSpace/JiaHuan/android-example-code/module_example/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/native-lib.dir

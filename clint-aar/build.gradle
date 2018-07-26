@@ -1,14 +1,13 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion common.compileSdkVersion
+    compileSdkVersion config.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion common.minSdkVersion
-        targetSdkVersion common.targetSdkVersion
-        versionCode common.versionCode
-        versionName common.versionName
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
     }
 
     buildTypes {
@@ -20,29 +19,7 @@ android {
 
 }
 
-publish {
-    userOrg = 'vendor-yu'                                     //bintray.com用户名
-    groupId = 'me.jiahuan.androidlearn.lint'                           //jcenter上的路径
-    artifactId = 'lint-test'                          //项目名称
-    publishVersion = '1.0.0'                                //版本号
-    desc = 'test desc'
-    website = 'test website'
-}
-
-
 dependencies {
     lintChecks project(':clint')
 }
 
-
-//task copyLintJar(type: Copy) {
-//    from(configurations.lintChecks) {
-//        rename { 'lint.jar' }
-//    }
-//    into 'build/intermediates/lint/'
-//}
-//
-//project.afterEvaluate {
-//    def compileLintTask = project.tasks.find { it.name == 'compileLint' }
-//    compileLintTask.dependsOn(copyLintJar)
-//}

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <attr name="lib_base_AppTheme.TextColor" format="color" />
-    <attr name="lib_base_AppTheme.TextSize" format="dimension" />
-</resources>

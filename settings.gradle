@@ -1,3 +1,3 @@
 println "setting.gradle start"
-include ':app', ':module_example', ':lib_base', ':module_home', ':java-test', ':clint', ':clint-aar', ':krouter-api'
+include ':app', ':module_function', ':lib_base', ':clint', ':clint-aar'
 println "setting.gradle end"
