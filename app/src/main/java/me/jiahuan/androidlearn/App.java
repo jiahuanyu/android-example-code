@@ -39,8 +39,8 @@ public class App extends Application {
         FormatStrategy logFormatStrategy = PrettyFormatStrategy.newBuilder()
                 .logStrategy(logStrategy)
                 .showThreadInfo(true)
-                .methodCount(2)
-                .methodOffset(3)
+                .methodCount(0)
+                .methodOffset(0)
                 .tag(getAppName())
                 .build();
         Logger.addLogAdapter(new AndroidLogAdapter(logFormatStrategy) {

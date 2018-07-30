@@ -2,5 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/id_menu_main_activity_bottom_navigation_view_function"
-        android:title="@string/string_menu_main_activity_bottom_navigation_view_function" />
+        android:title="功能" />
+
+
+    <item
+        android:id="@+id/id_menu_main_activity_bottom_navigation_view_ui"
+        android:title="界面" />
 </menu>

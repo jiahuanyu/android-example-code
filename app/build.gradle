@@ -32,9 +32,9 @@ android {
 dependencies {
     annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
     api project(':lib_base')
     api project(':module_function')
+    implementation project(':module_ui')
 }
 repositories {
     mavenCentral()

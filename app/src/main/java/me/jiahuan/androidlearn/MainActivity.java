@@ -14,6 +14,7 @@ import java.util.List;
 import butterknife.BindView;
 import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.function.FunctionFragment;
+import me.jiahuan.androidlearn.ui.UIFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -23,6 +24,7 @@ public class MainActivity extends BaseActivity {
     BottomNavigationView mBottomNavigationView;
 
     private FunctionFragment mFunctionFragment;
+    private UIFragment mUIFragment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,9 +35,11 @@ public class MainActivity extends BaseActivity {
 
     private void initialize() {
         mFunctionFragment = new FunctionFragment();
+        mUIFragment = new UIFragment();
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                addOrShowFragment(item.getItemId());
                 return true;
             }
         });
@@ -64,7 +68,14 @@ public class MainActivity extends BaseActivity {
             } else {
                 fragmentTransaction.add(R.id.id_layout_main_activity_fragment_container_view_group, mFunctionFragment, FunctionFragment.TAG);
             }
-            getSupportActionBar().setTitle(R.string.string_menu_main_activity_bottom_navigation_view_function);
+            getSupportActionBar().setTitle("功能");
+        } else if (itemId == R.id.id_menu_main_activity_bottom_navigation_view_ui) {
+            if (fragments.contains(mUIFragment)) {
+                fragmentTransaction.show(mUIFragment);
+            } else {
+                fragmentTransaction.add(R.id.id_layout_main_activity_fragment_container_view_group, mUIFragment, UIFragment.TAG);
+            }
+            getSupportActionBar().setTitle("UI");
         }
         fragmentTransaction.commit();
     }
