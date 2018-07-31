@@ -64,13 +64,13 @@ public class RecyclerViewActivity extends BaseActivity {
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            Log.d(TAG, "onCreateViewHolder");
+//            Log.d(TAG, "onCreateViewHolder");
             return new MyViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.module_ui_layout_recycler_view_activity_item, parent, false));
         }
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-            Log.d(TAG, "onBindViewHolder = " + position);
+//            Log.d(TAG, "onBindViewHolder = " + position);
             ((MyViewHolder) holder).title.setText(mStrings.get(position));
         }
 
@@ -92,7 +92,7 @@ public class RecyclerViewActivity extends BaseActivity {
 
     static class MyLayoutManager extends RecyclerView.LayoutManager {
 
-        private int mVerticalScrollOffset = 0;
+        private int mVerticalScrollOffset = 0;  //
 
         @Override
         public RecyclerView.LayoutParams generateDefaultLayoutParams() {
@@ -105,46 +105,101 @@ public class RecyclerViewActivity extends BaseActivity {
             if (getItemCount() == 0) {
                 return;
             }
-            // 获取每个Item的位置信息
-            for (int i = 0; i < getItemCount(); i++) {
-
-            }
 
             // 调用了两次
             Log.d(TAG, "onLayoutChildren");
             detachAndScrapAttachedViews(recycler);
             Log.d(TAG, "attached size = " + recycler.getScrapList().size());
-            fillDown(recycler);
+            fill(recycler);
         }
 
-        private void fillDown(RecyclerView.Recycler recycler) {
-            // 屏幕内添加View
-            int itemPosition = 0;
-            int itemCount = getItemCount();
-            int itemBottom = getVerticalSpace();
-            int totalItemHeight = mVerticalScrollOffset;
-            while (true) {
-                if (itemPosition >= itemCount) {
-                    break;
-                }
-                View view = recycler.getViewForPosition(itemPosition);
-                addView(view);
-//                Log.d(TAG, "after add View attached size = " + recycler.getScrapList().size());
-                measureChildWithMargins(view, 0, 0);
-                int itemWidth = getDecoratedMeasuredWidth(view); // 计算view实际大小，包括了ItemDecorator中设置的偏移量
-                int itemHeight = getDecoratedMeasuredHeight(view);
-//                Log.d(TAG, "itemWidth = " + itemWidth + "   itemHeight = " + itemHeight);
+        @Override
+        public boolean canScrollVertically() {
+            return true;
+        }
 
-                layoutDecorated(view, 0, totalItemHeight, itemWidth, totalItemHeight + itemHeight);
+        @Override
+        public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
+            if (getItemCount() == 0 || getChildCount() == 0 || dy == 0) {
+                return 0;
+            }
+            int distance = dy;
 
-                totalItemHeight += itemHeight;
-                itemPosition++;
+            mVerticalScrollOffset += -distance;
+            recycleViews(recycler);
+            reFill(recycler);
+            offsetChildrenVertical(-distance);
+            Log.d(TAG, "child count = " + getChildCount());
+            return distance;
+        }
 
-                if (getDecoratedBottom(view) >= itemBottom) {
-                    break;
+        private void recycleViews(RecyclerView.Recycler recycler) {
+            int childCount = getChildCount();
+            List<View> recycleViews = new ArrayList<>();
+            for (int i = 0; i < childCount; i++) {
+                View child = getChildAt(i);
+                int childTop = getDecoratedTop(child);
+                int childBottom = getDecoratedBottom(child);
+                if (childBottom <= 0 || childTop >= getVerticalSpace()) {
+                    recycleViews.add(child);
                 }
             }
-//            Log.d(TAG, "children count =" + getChildCount());
+
+            for (View child : recycleViews) {
+                removeAndRecycleView(child, recycler);
+                Log.d(TAG, "removeAndRecycleView");
+            }
+        }
+
+        private void reFill(RecyclerView.Recycler recycler) {
+            // 取第一个
+            View child = getChildAt(0);
+            int currentFillItemPosition = getPosition(child) - 1;
+            Log.d(TAG, "currentFillItemPosition = " + currentFillItemPosition);
+            int currentFillItemBottom = getDecoratedTop(child);
+            Log.d(TAG, "currentFillItemBottom = " + currentFillItemBottom);
+            while (currentFillItemPosition >= 0 && currentFillItemBottom > 0) {
+                View view = recycler.getViewForPosition(currentFillItemPosition);
+                addView(view, 0);
+                measureChildWithMargins(view, 0, 0);
+                int itemHeight = getDecoratedMeasuredHeight(view);
+                layoutDecorated(view, 0, currentFillItemBottom - itemHeight, getHorizontalSpace(), currentFillItemBottom);
+                currentFillItemBottom -= itemHeight;
+                currentFillItemPosition--;
+            }
+
+            // 最后一个
+            int itemCount = getItemCount();
+            child = getChildAt(getChildCount() - 1);
+            currentFillItemPosition = getPosition(child) + 1;
+            int currentFillItemTop = getDecoratedBottom(child);
+            while (currentFillItemPosition < itemCount && currentFillItemTop < getVerticalSpace()) {
+                View view = recycler.getViewForPosition(currentFillItemPosition);
+                addView(view);
+                measureChildWithMargins(view, 0, 0);
+                int itemHeight = getDecoratedMeasuredHeight(view);
+                layoutDecorated(view, 0, currentFillItemTop, getHorizontalSpace(), currentFillItemTop + itemHeight);
+                currentFillItemTop += itemHeight;
+                currentFillItemPosition++;
+            }
+        }
+
+        private void fill(RecyclerView.Recycler recycler) {
+            int itemCount = getItemCount();
+            if (itemCount == 0) {
+                return;
+            }
+            int currentFillItemPosition = 0;
+            int currentFillItemTop = 0;
+            while (currentFillItemPosition < itemCount && currentFillItemTop < getVerticalSpace()) {
+                View view = recycler.getViewForPosition(currentFillItemPosition);
+                addView(view);
+                measureChildWithMargins(view, 0, 0);
+                int itemHeight = getDecoratedMeasuredHeight(view);
+                layoutDecorated(view, 0, currentFillItemTop, getHorizontalSpace(), currentFillItemTop + itemHeight);
+                currentFillItemTop += itemHeight;
+                currentFillItemPosition++;
+            }
         }
 
         private int getVerticalSpace() {
@@ -154,40 +209,6 @@ public class RecyclerViewActivity extends BaseActivity {
 
         private int getHorizontalSpace() {
             return getWidth() - getPaddingLeft() - getPaddingRight();
-        }
-
-
-        @Override
-        public boolean canScrollVertically() {
-            return true;
-        }
-
-
-        @Override
-        public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
-//            Log.d(TAG, "dy = " + dy);
-
-//            Log.d(TAG, "scrollVerticallyBy attached size = " + recycler.getScrapList().size());
-
-            int distance = dy;
-
-            mVerticalScrollOffset += -distance;
-
-            for (int i = 0; i < getChildCount(); i++) {
-                View child = getChildAt(i);
-                int childBottom = getDecoratedBottom(child);
-                int childTop = getDecoratedTop(child);
-                if (childBottom <= -mVerticalScrollOffset || childTop >= -mVerticalScrollOffset + getVerticalSpace()) {
-                    removeAndRecycleView(child, recycler);
-                }
-            }
-
-            //
-            detachAndScrapAttachedViews(recycler);
-            offsetChildrenVertical(-distance);
-            fillDown(recycler);
-            Log.d(TAG, "child count = " + getChildCount());
-            return distance;
         }
     }
 }
