@@ -13,11 +13,6 @@ android {
         versionCode config.versionCode
         versionName config.versionName
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["moduleName": project.name]
-            }
-        }
         resourcePrefix "module_function_"
     }
 
@@ -37,8 +32,8 @@ android {
 
 
 dependencies {
-    annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
 
     api project(':lib_base')
-    api project(':clint-aar')
+//    api project(':clint-aar')
 }

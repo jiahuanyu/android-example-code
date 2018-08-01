@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import me.jiahuan.androidlearn.base.BaseFragment;
 import me.jiahuan.androidlearn.function.lru.LruCacheActivity;
+import me.jiahuan.androidlearn.function.rxjava2.RxJava2Activity;
 
 public class FunctionFragment extends BaseFragment {
     public static final String TAG = "FunctionFragment";
@@ -33,6 +34,12 @@ public class FunctionFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), LruCacheActivity.class));
+            }
+        });
+        view.findViewById(R.id.id_module_function_layout_fragment_rxjava2_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), RxJava2Activity.class));
             }
         });
     }

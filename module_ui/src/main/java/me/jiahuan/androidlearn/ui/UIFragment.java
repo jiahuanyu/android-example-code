@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import me.jiahuan.androidlearn.base.BaseFragment;
 import me.jiahuan.androidlearn.ui.recyclerview.RecyclerViewActivity;
+import me.jiahuan.androidlearn.ui.viewpager.ViewPagerActivity;
 
 public class UIFragment extends BaseFragment {
 
@@ -28,6 +29,13 @@ public class UIFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), RecyclerViewActivity.class));
+            }
+        });
+
+        view.findViewById(R.id.module_ui_layout_ui_fragment_view_pager_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ViewPagerActivity.class));
             }
         });
     }

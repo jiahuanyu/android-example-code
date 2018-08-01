@@ -10,4 +10,10 @@
         android:layout_height="wrap_content"
         android:text="LruCache" />
 
+    <Button
+        android:id="@+id/id_module_function_layout_fragment_rxjava2_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RxJava2" />
+
 </LinearLayout>

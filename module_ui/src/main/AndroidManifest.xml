@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.jiahuan.androidlearn.ui">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
         <activity android:name=".recyclerview.RecyclerViewActivity" />
+        <activity android:name=".viewpager.ViewPagerActivity" />
     </application>
 
 </manifest>

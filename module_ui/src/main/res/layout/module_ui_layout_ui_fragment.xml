@@ -10,4 +10,10 @@
         android:layout_height="wrap_content"
         android:text="RecyclerView" />
 
+    <Button
+        android:id="@+id/module_ui_layout_ui_fragment_view_pager_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ViewPager" />
+
 </LinearLayout>

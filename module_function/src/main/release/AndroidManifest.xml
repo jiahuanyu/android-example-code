@@ -3,5 +3,6 @@
 
     <application>
         <activity android:name=".lru.LruCacheActivity" />
+        <activity android:name=".rxjava2.RxJava2Activity" />
     </application>
 </manifest>
