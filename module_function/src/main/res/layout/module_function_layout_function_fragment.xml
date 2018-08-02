@@ -16,4 +16,10 @@
         android:layout_height="wrap_content"
         android:text="RxJava2" />
 
+    <Button
+        android:id="@+id/id_module_function_layout_fragment_binder_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Binder" />
+
 </LinearLayout>

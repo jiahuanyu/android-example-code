@@ -4,5 +4,13 @@
     <application>
         <activity android:name=".lru.LruCacheActivity" />
         <activity android:name=".rxjava2.RxJava2Activity" />
+        <activity android:name=".binder.BinderActivity" />
+
+
+        <service
+            android:name=".binder.BookRemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":book" />
     </application>
 </manifest>
