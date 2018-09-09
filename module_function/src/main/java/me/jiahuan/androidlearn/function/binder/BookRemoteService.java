@@ -12,7 +12,7 @@ import java.util.List;
 
 public class BookRemoteService extends Service {
 
-    private static final String TAG = "BookRemoteService";
+    private static final String TAG = "BinderSample";
 
     private List<Book> mBooks = new ArrayList<>();
 
@@ -28,6 +28,17 @@ public class BookRemoteService extends Service {
         }
     };
 
+    @Override
+    public void onRebind(Intent intent) {
+        Log.d(TAG, "onRebind");
+        super.onRebind(intent);
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Log.d(TAG, "onCreate");
+    }
 
     @Nullable
     @Override
@@ -36,11 +47,20 @@ public class BookRemoteService extends Service {
         return mBinder;
     }
 
+    @Override
+    public boolean onUnbind(Intent intent) {
+        return super.onUnbind(intent);
+    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy");
+    }
 
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        super.onTaskRemoved(rootIntent);
+        Log.d(TAG, "onTaskRemoved");
     }
 }

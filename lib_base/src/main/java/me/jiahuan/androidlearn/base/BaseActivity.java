@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import butterknife.ButterKnife;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -13,7 +12,6 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void initializeActivity(int layoutId) {
         setContentView(layoutId);
-        ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.id_layout_tool_bar_tool_bar);
         setSupportActionBar(toolbar);
         mSelfActivity = this;

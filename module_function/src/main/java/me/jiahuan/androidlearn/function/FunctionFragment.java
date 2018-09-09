@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import me.jiahuan.androidlearn.base.BaseFragment;
 import me.jiahuan.androidlearn.function.binder.BinderActivity;
+import me.jiahuan.androidlearn.function.hook.HookActivity;
+import me.jiahuan.androidlearn.function.jni.JNIActivity;
 import me.jiahuan.androidlearn.function.lru.LruCacheActivity;
 import me.jiahuan.androidlearn.function.rxjava2.RxJava2Activity;
 
@@ -47,6 +49,18 @@ public class FunctionFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), BinderActivity.class));
+            }
+        });
+        view.findViewById(R.id.id_module_function_layout_fragment_jni_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), JNIActivity.class));
+            }
+        });
+        view.findViewById(R.id.id_module_function_layout_fragment_hook_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), HookActivity.class));
             }
         });
     }

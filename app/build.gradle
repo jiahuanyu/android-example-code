@@ -9,12 +9,6 @@ android {
         versionCode  config.versionCode
         versionName  config.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["moduleName": project.name]
-            }
-        }
     }
     buildTypes {
         release {
@@ -22,19 +16,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    sourceSets {
-        main {
-        }
-    }
-
 }
 
 dependencies {
-    annotationProcessor 'com.chenenyu.router:compiler:1.4.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    api project(':lib_base')
-    api project(':module_function')
+    implementation project(':module_function')
     implementation project(':module_ui')
+    api project(':lib_base')
 }
 repositories {
     mavenCentral()

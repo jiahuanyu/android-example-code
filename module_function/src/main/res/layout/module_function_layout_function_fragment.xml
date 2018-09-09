@@ -22,4 +22,16 @@
         android:layout_height="wrap_content"
         android:text="Binder" />
 
+    <Button
+        android:id="@+id/id_module_function_layout_fragment_jni_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="JNI" />
+
+    <Button
+        android:id="@+id/id_module_function_layout_fragment_hook_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HOOK" />
+
 </LinearLayout>

@@ -16,7 +16,7 @@ import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.function.R;
 
 public class BinderActivity extends BaseActivity {
-    private static final String TAG = "BinderActivity";
+    private static final String TAG = "BinderSample";
 
     private IBookManager mBookManager;
 
@@ -71,6 +71,12 @@ public class BinderActivity extends BaseActivity {
     public void onUnbindButtonClicked(View v) {
         Log.d(TAG, "onUnbindButtonClicked");
         unbindService(mServiceConnection);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        unbindService(mServiceConnection);
     }
 }
 

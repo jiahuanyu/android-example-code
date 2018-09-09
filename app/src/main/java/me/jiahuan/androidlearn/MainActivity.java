@@ -7,11 +7,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.MenuItem;
 
 import java.util.List;
 
-import butterknife.BindView;
 import me.jiahuan.androidlearn.base.BaseActivity;
 import me.jiahuan.androidlearn.function.FunctionFragment;
 import me.jiahuan.androidlearn.ui.UIFragment;
@@ -20,7 +20,6 @@ public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 
-    @BindView(R.id.id_layout_main_activity_bottom_navigation_view)
     BottomNavigationView mBottomNavigationView;
 
     private FunctionFragment mFunctionFragment;
@@ -29,11 +28,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
         initializeActivity(R.layout.layout_main_activity);
         initialize();
     }
 
     private void initialize() {
+        mBottomNavigationView = findViewById(R.id.id_layout_main_activity_bottom_navigation_view);
         mFunctionFragment = new FunctionFragment();
         mUIFragment = new UIFragment();
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -78,6 +79,31 @@ public class MainActivity extends BaseActivity {
             getSupportActionBar().setTitle("UI");
         }
         fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onSaveInstanceState");
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
     }
 }
 

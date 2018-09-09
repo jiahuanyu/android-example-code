@@ -14,6 +14,14 @@ android {
         versionName config.versionName
 
         resourcePrefix "module_function_"
+
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
     }
 
     sourceSets {
@@ -23,9 +31,12 @@ android {
             } else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
             }
-//            java.srcDirs( 'src/function/java', 'src/ui/java')
-//            res.srcDirs('src/function/res', 'src/ui/res')
-//            aidl.srcDirs('src/function/aidl')
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
         }
     }
 }

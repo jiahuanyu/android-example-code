@@ -7,8 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.chenenyu.router.Configuration;
-import com.chenenyu.router.Router;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.LogStrategy;
@@ -19,12 +17,13 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 public class App extends Application {
 
     private static final String TAG = "App";
-    
+
     private String mAppName = null;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.d("BinderSample", "application on create");
         // 初始化日志系统
         LogStrategy logStrategy = new LogStrategy() {
             private String[] prefix = {". ", " ."};
@@ -50,10 +49,10 @@ public class App extends Application {
             }
         });
         //
-        Router.initialize(new Configuration.Builder()
-                .setDebuggable(BuildConfig.DEBUG)
-                .registerModules("app", "module_function")
-                .build());
+//        Router.initialize(new Configuration.Builder()
+//                .setDebuggable(BuildConfig.DEBUG)
+//                .registerModules("app", "module_function")
+//                .build());
     }
 
     private String getAppName() {
