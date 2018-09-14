@@ -97,8 +97,12 @@ public class PermissionActivity extends BaseActivity {
                 }
 
             }
-        } else if() {
-
+        } else if(requestCode == REQUEST_WRITE_EXTERNAL_STORAGE) {
+            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+                Log.d(TAG, "写外存授权");
+            } else {
+                Log.d(TAG, "写外存授权");
+            }
         }
     }
 
