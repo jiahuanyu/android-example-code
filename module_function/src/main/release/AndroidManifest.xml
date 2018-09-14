@@ -1,13 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.jiahuan.androidlearn.function">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application>
         <activity android:name=".lru.LruCacheActivity" />
         <activity android:name=".rxjava2.RxJava2Activity" />
         <activity android:name=".binder.BinderActivity" />
         <activity android:name=".jni.JNIActivity" />
         <activity android:name=".hook.HookActivity" />
-
+        <activity android:name=".permission.PermissionActivity" />
 
         <service
             android:name=".binder.BookRemoteService"
