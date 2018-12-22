@@ -33,5 +33,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HOOK" />
+    <Button
+        android:id="@+id/id_module_function_layout_fragment_permission_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PERMISSION" />
 
 </LinearLayout>
