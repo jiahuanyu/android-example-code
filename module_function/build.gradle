@@ -1,8 +1,4 @@
-if (isBuildModule.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion config.compileSdkVersion
@@ -24,16 +20,6 @@ android {
 
     }
 
-    sourceSets {
-        main {
-            if (isBuildModule.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-            }
-        }
-    }
-
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
@@ -43,8 +29,6 @@ android {
 
 
 dependencies {
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
 
     api project(':lib_base')
-//    api project(':clint-aar')
 }

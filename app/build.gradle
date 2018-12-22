@@ -19,10 +19,6 @@ android {
 }
 
 dependencies {
-    implementation project(':module_function')
-    implementation project(':module_ui')
-    api project(':lib_base')
-}
-repositories {
-    mavenCentral()
+    api project(':module_function')
+    api project(':module_ui')
 }
